@@ -1,168 +1,87 @@
 # Neurafrik Solutions - AI & Automation for Africa
 
-## 🚀 Getting Started
+Neurafrik Solutions est une plateforme moderne de services numériques conçue pour accompagner les entreprises africaines dans leur transformation digitale à travers 5 piliers stratégiques.
 
-### Installation
+## 🚀 Services (5 Piliers)
 
-1. **Install Node.js** if you haven't already
-   - Download from [nodejs.org](https://nodejs.org)
+1.  **Automatisation Intelligente** : Optimisation des flux de travail et des processus commerciaux.
+2.  **Intelligence Artificielle** : Chatbots avancés et agents IA spécialisés.
+3.  **Développement Sur Mesure** : Applications web performantes et solutions digitales.
+4.  **Analyse de Données & BI** : Tableaux de bord interactifs et décisions basées sur les données.
+5.  **Conseil & Formation** : Audit digital et accompagnement stratégique vers l'IA.
 
-2. **Navigate to project directory**
-   ```bash
-   cd "c:\Users\ulrich\Downloads\Nouveau dossier (15)\stitch\neurafrik_site"
-   ```
+## 🌍 Fonctionnalités Clés
 
-3. **Install dependencies**
-   ```bash
-   npm install
-   ```
+- **Multi-langue (i18n)** : Support complet pour l'Anglais et le Français via des fichiers JSON (`locales/`).
+- **Moteur de Template EJS** : Architecture dynamique et modulaire pour une maintenance simplifiée.
+- **Espace Administration** : Interface de gestion sécurisée pour les demandes de clients.
+- **Persistance des Données** : Sauvegarde automatique des contacts et abonnés en local.
+- **Design Premium** : Thème sombre (Dark Mode) avec glassmorphism et animations CSS.
 
-### Running the Server
+---
 
-Start the development server:
+## 🛠️ Installation et Exécution
+
+### 1. Prérequis
+- [Node.js](https://nodejs.org/) installé sur votre machine.
+
+### 2. Installation
+```bash
+npm install
+```
+
+### 3. Lancer le serveur
 ```bash
 npm start
 ```
 
-The server will run at: **http://localhost:3000**
-
-### Access the Website
-
-Open your browser and visit:
-- **Home**: http://localhost:3000/home.html
-- **About**: http://localhost:3000/about.html
-- **Services**: http://localhost:3000/service.html
-- **Solutions**: http://localhost:3000/solution.html
-- **Contact**: http://localhost:3000/contact.html
-
-## 📋 Features
-
-### Navigation
-All pages have unified navigation that links between:
-- Home
-- About
-- Services
-- Solutions
-- Contact
-
-### Contact Form
-Submit inquiries through the contact form at `/contact.html`:
-- Full Name (required)
-- Email Address (required)
-- Service of Interest (required)
-- Message (required)
-
-### API Endpoints
-
-#### Submit Contact Form
-```
-POST /api/contact
-Content-Type: application/json
-
-{
-  "fullName": "John Doe",
-  "email": "john@example.com",
-  "service": "AI Strategy Consulting",
-  "message": "I'm interested in your services"
-}
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "message": "Thank you! We received your message. We'll contact you soon.",
-  "id": 1
-}
-```
-
-#### Get All Submissions
-```
-GET /api/submissions
-```
-
-Returns array of all form submissions
-
-#### Get Specific Submission
-```
-GET /api/submissions/:id
-```
-
-Returns submission with specific ID
-
-#### Subscribe to Newsletter
-```
-POST /api/newsletter
-Content-Type: application/json
-
-{
-  "email": "subscriber@example.com"
-}
-```
-
-## 🎨 Design System
-
-### Color Palette
-- **Primary**: `#00eeff` (Cyan)
-- **Accent Purple**: `#bc00ff`
-- **Background Dark**: `#050a0a`
-- **Background Light**: `#f5f8f8`
-- **Glass**: `rgba(15, 34, 35, 0.7)`
-
-### Typography
-- **Font**: Inter (weights: 300-900)
-- **Icons**: Material Symbols Outlined
-
-## 📁 Project Structure
-
-```
-neurafrik_site/
-├── home.html           # Landing page
-├── about.html          # About page
-├── service.html        # Services page
-├── solution.html       # Solutions showcase
-├── contact.html        # Contact form
-├── styles.css          # Shared CSS styles
-├── server.js           # Express server
-├── package.json        # Dependencies
-└── README.md          # This file
-```
-
-## 🔧 Tech Stack
-
-- **Frontend**: HTML5, Tailwind CSS, JavaScript
-- **Backend**: Node.js, Express.js
-- **Frontend Framework**: None (vanilla HTML/CSS/JS)
-
-## 📝 Form Data Handling
-
-All form submissions are:
-1. Validated on the server
-2. Stored in memory (consider database for production)
-3. Returned with success/error message
-4. Logged to console for monitoring
-
-## 🚀 Deployment
-
-For production deployment:
-
-1. Use a process manager like **PM2**
-2. Use a reverse proxy like **Nginx**
-3. Store form data in a database (MongoDB, PostgreSQL, etc.)
-4. Add email notifications
-5. Implement HTTPS/SSL
-
-Example with PM2:
-```bash
-npm install -g pm2
-pm2 start server.js
-pm2 save
-```
-
-## 📞 Support
-
-For questions or issues, contact: hello@neurafrik.com
+Le site sera accessible sur : **http://localhost:3001**
 
 ---
 
-**Built with ❤️ for African Enterprises**
+## 🔐 Espace Administration (Admin Portal)
+
+Neurafrik inclut un espace de gestion pour centraliser vos opportunités.
+
+- **URL** : `http://localhost:3001/admin/login`
+- **Identifiants par défaut** :
+    - **Identifiant** : `admin`
+    - **Mot de passe** : `admin123`
+
+**Fonctionnalités Admin :**
+- Statistiques en temps réel (nouveaux messages, total abonnés).
+- Lecture et suppression des messages de contact.
+- Gestion de la liste de diffusion (newsletter).
+- Exportation des données (via interface tableau).
+
+---
+
+## 📁 Structure du Projet
+
+```text
+neurafrik_site/
+├── assets/             # Images (Logo, Favicon)
+├── data/               # Stockage persistant (JSON)
+├── locales/            # Traductions (EN/FR)
+├── utils/              # Logique backend (Base de données)
+├── views/              # Pages et composants EJS
+│   ├── admin/          # Interface d'administration
+│   └── partials/       # Header, Nav, Footer réutilisables
+├── server.js           # Serveur Express principal
+└── README.md           # Documentation
+```
+
+## 🔧 Pile Technologique
+
+- **Backend** : Node.js, Express, EJS
+- **Frontend** : HTML5, Tailwind CSS, JavaScript
+- **Sessions** : `express-session` pour l'authentification admin
+- **Data** : JSON File-based storage (persistent)
+
+---
+
+## 📞 Support
+
+Pour toute question ou demande technique : **contact@neurafrik.com**
+
+**Built with ❤️ for African Enterprises by Neurafrik Solutions**
