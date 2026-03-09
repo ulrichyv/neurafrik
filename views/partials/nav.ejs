@@ -1,0 +1,118 @@
+<nav class="fixed top-0 w-full z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between glass-nav bg-white/5 dark:bg-black/20 border border-white/10 rounded-2xl px-6 py-3">
+        <div class="flex items-center gap-3">
+            <a href="/home?lang=<%= lang %>" class="flex items-center gap-3 group">
+                <div class="size-14 flex items-center justify-center">
+                    <img src="/assets/images/logo.png" alt="Neurafrik Logo" class="h-14 w-auto object-contain transition-transform group-hover:scale-110">
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight">Neurafrik <span class="text-primary">Solutions</span></h1>
+            </a>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-8">
+            <a class="text-sm font-medium hover:text-primary transition-colors <%= activePage === 'home' ? 'text-primary' : '' %>" href="/home?lang=<%= lang %>"><%= t.nav.home %></a>
+            <a class="text-sm font-medium hover:text-primary transition-colors <%= activePage === 'about' ? 'text-primary' : '' %>" href="/about?lang=<%= lang %>"><%= t.nav.about %></a>
+            <a class="text-sm font-medium hover:text-primary transition-colors <%= activePage === 'service' ? 'text-primary' : '' %>" href="/service?lang=<%= lang %>"><%= t.nav.services %></a>
+            <a class="text-sm font-medium hover:text-primary transition-colors <%= activePage === 'solution' ? 'text-primary' : '' %>" href="/solution?lang=<%= lang %>"><%= t.nav.solutions %></a>
+            <a class="text-sm font-medium hover:text-primary transition-colors <%= activePage === 'contact' ? 'text-primary' : '' %>" href="/contact?lang=<%= lang %>"><%= t.nav.contact %></a>
+        </div>
+        
+        <div class="flex items-center gap-4">
+            <!-- Language Switcher Desktop -->
+            <div class="hidden sm:flex items-center gap-2 text-xs font-bold border-r border-white/10 pr-4 mr-2">
+                <a href="?lang=en" class="<%= lang === 'en' ? 'text-primary' : 'text-slate-500 hover:text-white' %>">EN</a>
+                <span class="text-slate-700">|</span>
+                <a href="?lang=fr" class="<%= lang === 'fr' ? 'text-primary' : 'text-slate-500 hover:text-white' %>">FR</a>
+            </div>
+
+            <a href="/contact?lang=<%= lang %>" class="hidden sm:block px-5 py-2 rounded-lg bg-primary text-background-dark text-sm font-bold hover:shadow-[0_0_20px_rgba(0,238,255,0.4)] transition-all flex items-center justify-center text-center"><%= t.nav.book_consultation %></a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" class="md:hidden text-white focus:outline-none relative z-[70] p-2 hover:bg-white/10 rounded-lg transition-colors cursor-pointer">
+                <span class="material-symbols-outlined pointer-events-none" id="menu-icon">menu</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div id="mobile-drawer" class="fixed inset-0 z-[60] transform translate-x-full transition-transform duration-300 ease-in-out pointer-events-none">
+    <!-- Overlay -->
+    <div id="drawer-overlay" class="absolute inset-0 bg-background-dark/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 hidden"></div>
+    
+    <!-- Drawer Content -->
+    <div class="absolute right-0 top-0 h-full w-4/5 max-w-sm bg-background-dark border-l border-white/10 p-8 flex flex-col pointer-events-auto shadow-2xl">
+        <div class="flex justify-between items-center mb-12">
+            <h2 class="text-xl font-bold"><%= t.nav.menu %></h2>
+            <button id="close-drawer" class="text-white p-2">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        
+        <div class="flex flex-col gap-6 text-lg">
+            <a class="font-medium hover:text-primary transition-colors <%= activePage === 'home' ? 'text-primary' : '' %>" href="/home?lang=<%= lang %>"><%= t.nav.home %></a>
+            <a class="font-medium hover:text-primary transition-colors <%= activePage === 'about' ? 'text-primary' : '' %>" href="/about?lang=<%= lang %>"><%= t.nav.about %></a>
+            <a class="font-medium hover:text-primary transition-colors <%= activePage === 'service' ? 'text-primary' : '' %>" href="/service?lang=<%= lang %>"><%= t.nav.services %></a>
+            <a class="font-medium hover:text-primary transition-colors <%= activePage === 'solution' ? 'text-primary' : '' %>" href="/solution?lang=<%= lang %>"><%= t.nav.solutions %></a>
+            <a class="font-medium hover:text-primary transition-colors <%= activePage === 'contact' ? 'text-primary' : '' %>" href="/contact?lang=<%= lang %>"><%= t.nav.contact %></a>
+        </div>
+        
+        <div class="mt-auto">
+            <!-- Language Switcher Mobile -->
+            <div class="flex items-center gap-4 mb-8 pt-8 border-t border-white/10">
+                <a href="?lang=en" class="text-lg font-bold <%= lang === 'en' ? 'text-primary' : 'text-slate-400' %>">English</a>
+                <a href="?lang=fr" class="text-lg font-bold <%= lang === 'fr' ? 'text-primary' : 'text-slate-400' %>">Français</a>
+            </div>
+            <a href="/contact?lang=<%= lang %>" class="w-full py-4 rounded-xl bg-primary text-background-dark font-bold hover:shadow-[0_0_20px_rgba(0,238,255,0.4)] transition-all flex items-center justify-center text-center"><%= t.nav.book_consultation %></a>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggle = document.getElementById('mobile-menu-toggle');
+        const close = document.getElementById('close-drawer');
+        const drawer = document.getElementById('mobile-drawer');
+        const overlay = document.getElementById('drawer-overlay');
+
+        if (!toggle || !drawer || !overlay) {
+            console.error('Menu elements not found:', { toggle, drawer, overlay });
+            return;
+        }
+
+        function openMenu(e) {
+            e.preventDefault();
+            console.log('Opening menu...');
+            drawer.classList.remove('pointer-events-none');
+            overlay.classList.remove('hidden');
+            setTimeout(() => {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('opacity-0');
+            }, 50);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu(e) {
+            if (e) e.preventDefault();
+            console.log('Closing menu...');
+            drawer.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0');
+            drawer.classList.add('pointer-events-none');
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = 'auto';
+        }
+
+        toggle.addEventListener('click', openMenu);
+        if (close) close.addEventListener('click', closeMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+
+        // Auto-close menu when a link is clicked
+        const drawerLinks = drawer.querySelectorAll('a');
+        drawerLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    });
+</script>

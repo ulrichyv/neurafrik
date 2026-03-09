@@ -1,0 +1,178 @@
+/* ==========================================
+   NEURAFRIK SOLUTIONS - UNIFIED STYLES
+   ========================================== */
+
+:root {
+  --primary: #00eeff;
+  --primary-rgb: 0, 238, 255;
+  --accent-purple: #bc00ff;
+  --accent-purple-rgb: 188, 0, 255;
+  --accent-dark: #0a1515;
+  --background-light: #f5f8f8;
+  --background-dark: #050a0a;
+  --background-dark-rgb: 5, 10, 10;
+  --glass: rgba(15, 34, 35, 0.7);
+  --border-white-10: rgba(255, 255, 255, 0.1);
+  --bg-white-5: rgba(255, 255, 255, 0.05);
+  --bg-white-10: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* Tailwind Custom Color Classes */
+@layer components {
+  .bg-primary {
+    background-color: var(--primary);
+  }
+  
+  .bg-accent-purple {
+    background-color: var(--accent-purple);
+  }
+  
+  .bg-accent-dark {
+    background-color: var(--accent-dark);
+  }
+  
+  .bg-background-dark {
+    background-color: var(--background-dark);
+  }
+  
+  .bg-background-light {
+    background-color: var(--background-light);
+  }
+  
+  .text-primary {
+    color: var(--primary);
+  }
+  
+  .text-accent-purple {
+    color: var(--accent-purple);
+  }
+  
+  .border-primary {
+    border-color: var(--primary);
+  }
+  
+  .border-accent-purple {
+    border-color: var(--accent-purple);
+  }
+  
+  .border-accent-dark {
+    border-color: var(--accent-dark);
+  }
+}
+
+/* Custom Glass Effect */
+.glass-nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Hero Gradient Background */
+.hero-gradient {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(var(--primary-rgb), 0.1) 0%,
+    rgba(var(--accent-purple-rgb), 0.05) 50%,
+    rgba(var(--background-dark-rgb), 1) 100%
+  );
+}
+
+/* Text Gradient (Cyan to Purple) */
+.text-gradient {
+  background: linear-gradient(90deg, var(--primary), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Smooth animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Utility for truncating text */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00eeff;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bc00ff;
+}
+
+/* Prevent text selection on icons */
+.material-symbols-outlined {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Fix for white opacity classes */
+.bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.border-white\/10 {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.bg-primary\/5 {
+  background-color: rgba(0, 238, 255, 0.05);
+}
+
+.bg-primary\/10 {
+  background-color: rgba(0, 238, 255, 0.1);
+}
+
+.text-primary\/50 {
+  color: rgba(0, 238, 255, 0.5);
+}
+
+.hover\:text-primary:hover {
+  color: #00eeff;
+}
+
+.hover\:bg-primary\/10:hover {
+  background-color: rgba(0, 238, 255, 0.1);
+}

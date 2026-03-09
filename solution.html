@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Solutions | Neurafrik Solutions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        primary: "#00eeff",
+        "accent-purple": "#bc00ff",
+        "background-light": "#f5f8f8",
+        "background-dark": "#050a0a",
+      },
+      fontFamily: {
+        display: ["Inter", "sans-serif"]
+      },
+    },
+  },
+}
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 overflow-x-hidden">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 px-6 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between glass-nav bg-white/5 dark:bg-black/20 border border-white/10 rounded-2xl px-6 py-3">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-background-dark font-bold">hub</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight">Neurafrik <span class="text-primary">Solutions</span></h1>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="/home">Home</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="/about">About</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="/service">Services</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="/solution">Solutions</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="/contact">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden sm:block px-5 py-2 rounded-lg bg-primary text-background-dark text-sm font-bold hover:shadow-[0_0_20px_rgba(0,238,255,0.4)] transition-all">Book Consultation</button>
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative py-20 px-6 lg:px-20 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
+<div class="max-w-7xl mx-auto text-center relative z-10">
+<span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest uppercase rounded-full border border-primary/30 bg-primary/10 text-primary">
+                        Enterprise AI
+                    </span>
+<h1 class="text-5xl lg:text-7xl font-black mb-6 tracking-tight leading-[1.1]">
+                        AI Solutions for Real <br/><span class="text-primary">Business Challenges</span>
+</h1>
+<p class="text-lg lg:text-xl text-slate-400 max-w-2xl mx-auto mb-10">
+                        Empowering African enterprises with cutting-edge artificial intelligence, seamless automation, and data-driven intelligence.
+                    </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto px-8 py-4 bg-primary text-background-dark font-bold rounded-xl text-lg hover:shadow-[0_0_20px_rgba(0,238,255,0.4)] transition-all">
+                            Book your free consultation
+                        </button>
+<button class="w-full sm:w-auto px-8 py-4 bg-slate-800 text-white font-bold rounded-xl text-lg border border-slate-700 hover:bg-slate-700 transition-all">
+                            View Case Studies
+                        </button>
+</div>
+</div>
+</section>
+<!-- Feature Cards Section -->
+<section class="py-20 px-6 lg:px-20 bg-white/5 dark:bg-white/5">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Card 1: AI Chatbot -->
+<div class="group relative bg-white/5 dark:bg-white/5 border border-white/10 dark:border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-all">
+<div class="p-8 lg:p-10">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">forum</span>
+<h3 class="text-2xl font-bold mb-3">AI Chatbot for Customer Service</h3>
+<p class="text-slate-500 dark:text-slate-400 mb-6">Omnichannel support with native WhatsApp integration. Resolve 80% of queries instantly without human intervention.</p>
+<ul class="space-y-2 mb-8">
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> 24/7 Automated Support
+                                    </li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> WhatsApp &amp; Social Integration
+                                    </li>
+</ul>
+<div class="relative h-48 w-full rounded-xl bg-slate-100 dark:bg-slate-900 flex items-end justify-center overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent z-10"></div>
+<div class="w-3/4 h-32 bg-slate-800 rounded-t-lg border-x border-t border-slate-700 p-4 transform translate-y-4 group-hover:translate-y-2 transition-transform" data-alt="Mockup of a sleek WhatsApp AI chat interface">
+<div class="flex flex-col gap-2">
+<div class="h-2 w-1/2 bg-primary/20 rounded"></div>
+<div class="h-2 w-3/4 bg-slate-700 rounded"></div>
+<div class="h-2 w-2/3 bg-slate-700 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: AI Assistant for Sales -->
+<div class="group relative bg-white/5 dark:bg-white/5 border border-white/10 dark:border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-all">
+<div class="p-8 lg:p-10">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">person_search</span>
+<h3 class="text-2xl font-bold mb-3">AI Assistant for Sales Teams</h3>
+<p class="text-slate-500 dark:text-slate-400 mb-6">Intelligent lead scoring and automated CRM management to help your team focus on closing high-value deals.</p>
+<ul class="space-y-2 mb-8">
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Predictive Lead Scoring
+                                    </li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> CRM Enhancement &amp; Enrichment
+                                    </li>
+</ul>
+<div class="relative h-48 w-full rounded-xl bg-slate-100 dark:bg-slate-900 flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent z-10"></div>
+<div class="w-4/5 grid grid-cols-2 gap-2 transform group-hover:scale-105 transition-transform" data-alt="Dashboard showing sales lead scoring and analytics">
+<div class="h-20 bg-primary/10 rounded border border-primary/20"></div>
+<div class="h-20 bg-slate-800 rounded border border-slate-700"></div>
+<div class="h-20 bg-slate-800 rounded border border-slate-700"></div>
+<div class="h-20 bg-primary/10 rounded border border-primary/20"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Workflow Automation -->
+<div class="group relative bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden hover:border-primary/50 transition-all">
+<div class="p-8 lg:p-10">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">account_tree</span>
+<h3 class="text-2xl font-bold mb-3">Workflow Automation</h3>
+<p class="text-slate-500 dark:text-slate-400 mb-6">Connect your favorite apps and automate repetitive tasks across your entire organization with multi-app workflows.</p>
+<ul class="space-y-2 mb-8">
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Cross-Platform Integration
+                                    </li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Custom Logic &amp; Conditional Tasks
+                                    </li>
+</ul>
+<div class="relative h-48 w-full rounded-xl bg-slate-100 dark:bg-slate-900 flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent z-10"></div>
+<div class="flex items-center gap-4 transform rotate-12 group-hover:rotate-0 transition-transform" data-alt="Visual workflow diagram showing app integrations">
+<div class="size-12 bg-slate-800 rounded flex items-center justify-center border border-slate-700"><span class="material-symbols-outlined text-slate-400">mail</span></div>
+<div class="w-10 h-0.5 bg-primary/30"></div>
+<div class="size-16 bg-primary/20 rounded flex items-center justify-center border border-primary/40"><span class="material-symbols-outlined text-primary">smart_toy</span></div>
+<div class="w-10 h-0.5 bg-primary/30"></div>
+<div class="size-12 bg-slate-800 rounded flex items-center justify-center border border-slate-700"><span class="material-symbols-outlined text-slate-400">database</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4: Data Dashboards -->
+<div class="group relative bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden hover:border-primary/50 transition-all">
+<div class="p-8 lg:p-10">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">monitoring</span>
+<h3 class="text-2xl font-bold mb-3">Data Dashboards</h3>
+<p class="text-slate-500 dark:text-slate-400 mb-6">Real-time KPI tracking and predictive analytics dashboards designed to turn complex data into actionable insights.</p>
+<ul class="space-y-2 mb-8">
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Real-time Performance Tracking
+                                    </li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> AI-Powered Trend Prediction
+                                    </li>
+</ul>
+<div class="relative h-48 w-full rounded-xl bg-slate-100 dark:bg-slate-900 flex items-end justify-center overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent z-10"></div>
+<div class="w-4/5 h-32 flex items-end gap-1 px-4 transform translate-y-2 group-hover:translate-y-0 transition-transform" data-alt="Dynamic data visualization charts and bars">
+<div class="flex-1 bg-slate-700 h-12 rounded-t"></div>
+<div class="flex-1 bg-primary h-24 rounded-t"></div>
+<div class="flex-1 bg-slate-700 h-16 rounded-t"></div>
+<div class="flex-1 bg-primary h-20 rounded-t"></div>
+<div class="flex-1 bg-slate-700 h-8 rounded-t"></div>
+<div class="flex-1 bg-primary h-28 rounded-t"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Industry Tabs -->
+<section class="py-20 px-6 lg:px-20">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="text-3xl lg:text-4xl font-bold mb-4">Tailored for Your Industry</h2>
+<p class="text-slate-500 dark:text-slate-400">Specialized AI models trained for specific business verticals.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-2 mb-10 border-b border-slate-200 dark:border-slate-800 pb-4">
+<button class="px-6 py-2 rounded-full bg-primary/20 text-primary font-bold border border-primary/30">Retail</button>
+<button class="px-6 py-2 rounded-full text-slate-500 font-medium hover:bg-slate-800 transition-all">Real Estate</button>
+<button class="px-6 py-2 rounded-full text-slate-500 font-medium hover:bg-slate-800 transition-all">Finance</button>
+<button class="px-6 py-2 rounded-full text-slate-500 font-medium hover:bg-slate-800 transition-all">Logistics</button>
+<button class="px-6 py-2 rounded-full text-slate-500 font-medium hover:bg-slate-800 transition-all">Healthcare</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="order-2 lg:order-1">
+<h3 class="text-2xl font-bold mb-4">Retail &amp; E-commerce</h3>
+<p class="text-slate-400 mb-6 leading-relaxed">
+                                Transform the shopping experience with AI product recommendations, automated inventory alerts, and WhatsApp-based order tracking that increases customer retention by up to 45%.
+                            </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 rounded-xl bg-white/5 border border-white/10">
+<div class="text-primary font-bold text-xl mb-1">45%</div>
+<div class="text-xs text-slate-500 uppercase font-bold tracking-wider">Higher Retention</div>
+</div>
+<div class="p-4 rounded-xl bg-white/5 border border-white/10">
+<div class="text-primary font-bold text-xl mb-1">24/7</div>
+<div class="text-xs text-slate-500 uppercase font-bold tracking-wider">Order Tracking</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 rounded-2xl overflow-hidden bg-white/5 aspect-video relative" data-alt="Modern retail store with futuristic digital interface overlays">
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-7xl opacity-50">shopping_bag</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Case Study Section -->
+<section class="py-20 px-6 lg:px-20 bg-primary/5">
+<div class="max-w-7xl mx-auto">
+<div class="bg-background-dark rounded-[2rem] border border-primary/20 overflow-hidden relative">
+<div class="grid grid-cols-1 lg:grid-cols-5 h-full">
+<div class="lg:col-span-2 relative h-64 lg:h-auto" data-alt="Portrait of a successful African business professional in a modern office">
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark via-transparent to-transparent z-10 hidden lg:block"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent z-10 lg:hidden"></div>
+<div class="w-full h-full bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-700 text-9xl">business_center</span>
+</div>
+</div>
+<div class="lg:col-span-3 p-8 lg:p-16">
+<div class="flex items-center gap-2 text-primary mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="font-bold text-sm tracking-widest uppercase">Featured Case Study</span>
+</div>
+<h2 class="text-3xl lg:text-4xl font-bold mb-6">How AfriBank Reduced Response Time by 95%</h2>
+<p class="text-slate-400 text-lg mb-8 italic">
+                                    "Neurafrik didn't just give us a tool; they transformed our entire digital customer experience. Our NPS scores have hit record highs since the implementation."
+                                </p>
+<div class="grid grid-cols-3 gap-6 mb-10">
+<div>
+<div class="text-3xl font-black text-white">95%</div>
+<div class="text-xs text-slate-500 uppercase font-bold tracking-wider">Response Speed</div>
+</div>
+<div>
+<div class="text-3xl font-black text-white">$1.2M</div>
+<div class="text-xs text-slate-500 uppercase font-bold tracking-wider">Annual Savings</div>
+</div>
+<div>
+<div class="text-3xl font-black text-white">2.4x</div>
+<div class="text-xs text-slate-500 uppercase font-bold tracking-wider">Lead Conversion</div>
+</div>
+</div>
+<button class="flex items-center gap-2 text-primary font-bold group">
+                                    Read Full Case Study <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 px-6 lg:px-20 text-center">
+<div class="max-w-4xl mx-auto">
+<h2 class="text-4xl lg:text-6xl font-black mb-6">Ready to automate your growth?</h2>
+<p class="text-xl text-slate-400 mb-10">Join the forward-thinking enterprises across Africa leveraging AI to win.</p>
+<button class="px-12 py-5 bg-primary text-background-dark font-black rounded-xl text-xl hover:shadow-[0_0_30px_rgba(0,238,255,0.6)] transition-all">
+                        Book your free consultation
+                    </button>
+<p class="mt-6 text-sm text-slate-500">No commitment required. Discovery call lasts 30 minutes.</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-dark py-16 px-6 lg:px-20 border-t border-white/10">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 lg:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">token</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Neurafrik</h2>
+</div>
+<p class="text-slate-500 text-sm mb-6">
+                            Leading Africa's AI revolution through tailored enterprise solutions and automation.
+                        </p>
+<div class="flex gap-4">
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">chat</span></a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-white uppercase text-xs tracking-widest">Solutions</h4>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#">AI Chatbots</a></li>
+<li><a class="hover:text-primary" href="#">Sales Assistants</a></li>
+<li><a class="hover:text-primary" href="#">Workflow Automation</a></li>
+<li><a class="hover:text-primary" href="#">Predictive Dashboards</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-white uppercase text-xs tracking-widest">Industries</h4>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#">Retail &amp; Commerce</a></li>
+<li><a class="hover:text-primary" href="#">Financial Services</a></li>
+<li><a class="hover:text-primary" href="#">Real Estate Tech</a></li>
+<li><a class="hover:text-primary" href="#">Healthcare AI</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-white uppercase text-xs tracking-widest">Office</h4>
+<p class="text-sm text-slate-500 mb-4">
+                            Victoria Island, Lagos<br/>
+                            Nigeria
+                        </p>
+<p class="text-sm text-primary font-bold">hello@neurafrik.com</p>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-600 font-medium uppercase tracking-widest">
+<p>© 2024 Neurafrik Solutions. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="hover:text-slate-400 transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-slate-400 transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Neurafrik Solutions - AI &amp; Automation for Africa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        primary: "#00eeff",
+        "accent-purple": "#bc00ff",
+        "background-light": "#f5f8f8",
+        "background-dark": "#050a0a",
+      },
+      fontFamily: {
+        display: ["Inter", "sans-serif"]
+      },
+    },
+  },
+}
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 overflow-x-hidden">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 px-6 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between glass-nav bg-white/5 dark:bg-black/20 border border-white/10 rounded-2xl px-6 py-3">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-background-dark font-bold">hub</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight">Neurafrik <span class="text-primary">Solutions</span></h1>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="/home">Home</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="/about">About</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="/service">Services</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="/solution">Solutions</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="/contact">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden sm:block px-5 py-2 rounded-lg bg-primary text-background-dark text-sm font-bold hover:shadow-[0_0_20px_rgba(0,238,255,0.4)] transition-all">
+                    Book Consultation
+                </button>
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 hero-gradient">
+<div class="absolute inset-0 z-0 opacity-30 pointer-events-none" data-alt="Abstract neural network visualization with subtle African continent map silhouette" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCR0zJG0XUFVrWYBSfoQQfMBoX0szkELrO18InsPJpQDFU6G1t5Vh62ulOXbcGEEVO5YM4vV9TX3rzgyfQVC1f36YoXRUWqJYzx2e0wHYzfNwAYNt5lNRI6n6Lq3Q8VT6lXiiqBpIWQAKjQCe6K_wC6eNW1UnggMwQZNaA8OMLIZiQ4G384nb8oUqC7QeIXBF4vkmX0E0pOciXJOFgjW4c9MZs8ftW_z3JOACGCcEG3L4K1_LmXQ980Ine0Kg9_TnTLr7fMnNop2ad2'); background-size: cover; background-position: center;">
+</div>
+<div class="relative z-10 max-w-5xl text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                AI-Driven Transformation
+            </div>
+<h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
+                Transform your business with <br/>
+<span class="text-gradient">Artificial Intelligence and Automation</span>
+</h1>
+<p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10">
+                We help African businesses automate complex processes, increase operational productivity, and scale faster using state-of-the-art AI solutions.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-accent-purple text-background-dark font-extrabold text-lg hover:scale-105 transition-transform">
+                    Discover our services
+                </button>
+<button class="px-8 py-4 rounded-xl glass-nav bg-white/5 border border-white/10 text-white font-bold text-lg hover:bg-white/10 transition-all">
+                    Book a consultation
+                </button>
+</div>
+</div>
+<!-- Stats Bar -->
+<div class="absolute bottom-10 w-full max-w-4xl px-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 glass-nav bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="flex items-center gap-4 justify-center md:justify-start">
+<span class="material-symbols-outlined text-primary text-3xl">rocket_launch</span>
+<div>
+<p class="text-2xl font-bold">100+</p>
+<p class="text-xs text-slate-400 uppercase tracking-widest">SMEs Transformed</p>
+</div>
+</div>
+<div class="flex items-center gap-4 justify-center border-y md:border-y-0 md:border-x border-white/10 py-4 md:py-0">
+<span class="material-symbols-outlined text-accent-purple text-3xl">sentiment_very_satisfied</span>
+<div>
+<p class="text-2xl font-bold">95%</p>
+<p class="text-xs text-slate-400 uppercase tracking-widest">Client Satisfaction</p>
+</div>
+</div>
+<div class="flex items-center gap-4 justify-center md:justify-end">
+<span class="material-symbols-outlined text-primary text-3xl">support_agent</span>
+<div>
+<p class="text-2xl font-bold">24/7</p>
+<p class="text-xs text-slate-400 uppercase tracking-widest">AI Support</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Logo Section -->
+<section class="py-16 border-b border-white/5 bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<p class="text-center text-slate-500 text-sm font-medium mb-10 uppercase tracking-[0.2em]">Trusted by Innovative African Companies</p>
+<div class="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
+<div class="h-8 w-32 bg-white/10 rounded" data-alt="Corporate partner logo placeholder 1"></div>
+<div class="h-8 w-32 bg-white/10 rounded" data-alt="Corporate partner logo placeholder 2"></div>
+<div class="h-8 w-32 bg-white/10 rounded" data-alt="Corporate partner logo placeholder 3"></div>
+<div class="h-8 w-32 bg-white/10 rounded" data-alt="Corporate partner logo placeholder 4"></div>
+<div class="h-8 w-32 bg-white/10 rounded" data-alt="Corporate partner logo placeholder 5"></div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-24 bg-background-dark" id="services">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div class="max-w-2xl">
+<h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">Our Expertise</h2>
+<h3 class="text-4xl md:text-5xl font-bold">Future-ready solutions for <br/><span class="text-slate-500">modern enterprises.</span></h3>
+</div>
+<a class="text-primary flex items-center gap-2 font-bold hover:underline" href="#">
+                    View all capabilities <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all hover:-translate-y-2">
+<div class="size-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</div>
+<h4 class="text-xl font-bold mb-3">AI Agents</h4>
+<p class="text-slate-400 text-sm leading-relaxed">Custom autonomous agents that handle customer service, sales, and internal workflows 24/7.</p>
+</div>
+<!-- Card 2 -->
+<div class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent-purple/50 transition-all hover:-translate-y-2">
+<div class="size-12 rounded-xl bg-accent-purple/20 text-accent-purple flex items-center justify-center mb-6 group-hover:bg-accent-purple group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">settings_suggest</span>
+</div>
+<h4 class="text-xl font-bold mb-3">Automation</h4>
+<p class="text-slate-400 text-sm leading-relaxed">Eliminate repetitive tasks with intelligent RPA and streamlined digital process automation.</p>
+</div>
+<!-- Card 3 -->
+<div class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all hover:-translate-y-2">
+<div class="size-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined text-3xl">terminal</span>
+</div>
+<h4 class="text-xl font-bold mb-3">Software Dev</h4>
+<p class="text-slate-400 text-sm leading-relaxed">Scalable, cloud-native applications built with integrated AI capabilities from day one.</p>
+</div>
+<!-- Card 4 -->
+<div class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent-purple/50 transition-all hover:-translate-y-2">
+<div class="size-12 rounded-xl bg-accent-purple/20 text-accent-purple flex items-center justify-center mb-6 group-hover:bg-accent-purple group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">monitoring</span>
+</div>
+<h4 class="text-xl font-bold mb-3">Data Analytics</h4>
+<p class="text-slate-400 text-sm leading-relaxed">Turn raw data into actionable insights with predictive modeling and business intelligence.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- About/Benefits Combined -->
+<section class="py-24 bg-slate-900/50">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="absolute -top-10 -left-10 size-64 bg-primary/20 rounded-full blur-[100px]"></div>
+<div class="relative rounded-3xl overflow-hidden border border-white/10 aspect-square md:aspect-video lg:aspect-square">
+<img alt="Team collaborating on AI" class="w-full h-full object-cover" data-alt="Diverse group of tech professionals working in a modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChxQfVZIBCM5OQRyHIKkCQBow8n0f8yQmSdsw1cbGUQZYGVK0a__wv6Xselfps5i89-xi5Sw9ZqQS7KVJf2GA6jJ5_PifE0WEnTTImHrR9Di0iKvybKSP792LYTxMxS7HpznpykrFiEYBcdEbkY2pa6_lOhS0LPxo5iUiB5HGUmWymizpOIG1EEDrRKTeqRpqHSMQSQvfoGFV1APN-s4Gq4IcUGoH2D0zmhmggQAi0mSwzVQPwHJq95PSa_IpdkqUTaoraDMejrusS"/>
+</div>
+<div class="absolute -bottom-6 -right-6 p-6 glass-nav bg-white/5 border border-white/10 rounded-2xl max-w-xs">
+<p class="text-sm font-medium italic text-slate-300">"Our mission is to bridge the technological gap and empower African enterprises through intelligent innovation."</p>
+<div class="mt-4 flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-700"></div>
+<div>
+<p class="text-sm font-bold">Amara Okafor</p>
+<p class="text-xs text-primary uppercase">Founder &amp; CEO</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">Why Choose Neurafrik</h2>
+<h3 class="text-4xl font-bold mb-8 leading-tight">Empowering the next generation of <span class="text-gradient">African Digital Leaders.</span></h3>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<div class="flex-shrink-0 size-6 rounded-full bg-primary/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">done</span>
+</div>
+<div>
+<h5 class="font-bold text-lg">Localized Expertise</h5>
+<p class="text-slate-400">Solutions tailored specifically for the unique challenges of African market dynamics.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<div class="flex-shrink-0 size-6 rounded-full bg-primary/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">done</span>
+</div>
+<div>
+<h5 class="font-bold text-lg">Rapid Implementation</h5>
+<p class="text-slate-400">Deploy AI models and automation workflows in weeks, not months.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<div class="flex-shrink-0 size-6 rounded-full bg-primary/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">done</span>
+</div>
+<div>
+<h5 class="font-bold text-lg">Cost Efficiency</h5>
+<p class="text-slate-400">Drastically reduce operational costs by up to 40% through intelligent automation.</p>
+</div>
+</li>
+</ul>
+<button class="mt-10 px-8 py-3 border border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-background-dark transition-all">
+                    Read Our Story
+                </button>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-24 bg-background-dark overflow-hidden" id="testimonials">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-center text-4xl font-bold mb-16">Stories of <span class="text-primary">Success</span></h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="p-8 rounded-2xl bg-white/5 border border-white/10 relative">
+<span class="material-symbols-outlined text-6xl text-primary/20 absolute top-4 right-4">format_quote</span>
+<p class="text-slate-300 mb-8 relative z-10">"Neurafrik's AI agents transformed our customer support. We've seen a 60% reduction in response times while doubling our query capacity."</p>
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-slate-800"></div>
+<div>
+<p class="font-bold">Kofi Mensah</p>
+<p class="text-xs text-slate-500">COO, Fintech Solutions Ghana</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="p-8 rounded-2xl bg-white/5 border border-white/10 relative">
+<span class="material-symbols-outlined text-6xl text-primary/20 absolute top-4 right-4">format_quote</span>
+<p class="text-slate-300 mb-8 relative z-10">"The automation workflows implemented by the team saved us thousands of hours in administrative labor. A complete game-changer."</p>
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-slate-800"></div>
+<div>
+<p class="font-bold">Sara Diop</p>
+<p class="text-xs text-slate-500">Director, Dakar Logistics</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="p-8 rounded-2xl bg-white/5 border border-white/10 relative">
+<span class="material-symbols-outlined text-6xl text-primary/20 absolute top-4 right-4">format_quote</span>
+<p class="text-slate-300 mb-8 relative z-10">"Their data analytics platform gave us insights we never knew we had. Our revenue forecasting accuracy improved by nearly 40%."</p>
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-slate-800"></div>
+<div>
+<p class="font-bold">Efe Balogun</p>
+<p class="text-xs text-slate-500">VP Operations, Lagos Retail Hub</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 px-6">
+<div class="max-w-5xl mx-auto rounded-[2.5rem] bg-gradient-to-br from-primary/20 via-background-dark to-accent-purple/20 border border-white/10 p-12 text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 size-64 bg-primary/10 rounded-full blur-[80px] -mr-32 -mt-32"></div>
+<div class="absolute bottom-0 left-0 size-64 bg-accent-purple/10 rounded-full blur-[80px] -ml-32 -mb-32"></div>
+<h2 class="text-4xl md:text-5xl font-black mb-6">Ready to automate your future?</h2>
+<p class="text-xl text-slate-400 mb-10 max-w-xl mx-auto">Join the ranks of high-performing African companies leveraging AI for unprecedented growth.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="px-10 py-4 bg-primary text-background-dark font-black rounded-xl text-lg hover:shadow-[0_0_30px_rgba(0,238,255,0.5)] transition-all">
+                    Start Your Free Trial
+                </button>
+<button class="px-10 py-4 glass-nav bg-white/10 border border-white/20 rounded-xl text-lg font-bold hover:bg-white/20 transition-all">
+                    Speak to an Expert
+                </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background-dark border-t border-white/5 pt-20 pb-10">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 lg:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-background-dark font-bold">hub</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight">Neurafrik</h1>
+</div>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">
+                    Pioneering Artificial Intelligence solutions for the African continent. Automate. Innovate. Accelerate.
+                </p>
+<div class="flex gap-4">
+<a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-background-dark transition-all" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-background-dark transition-all" href="#">
+<span class="material-symbols-outlined text-xl">alternate_email</span>
+</a>
+<a class="size-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-background-dark transition-all" href="#">
+<span class="material-symbols-outlined text-xl">public</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold mb-6">Solutions</h4>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">AI Customer Agents</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Process Automation</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Predictive Analytics</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Enterprise Search</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6">Company</h4>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="about.html">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="about.html">Our Team</a></li>
+<li><a class="hover:text-primary transition-colors" href="about.html">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="contact.html">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6">Stay Updated</h4>
+<p class="text-sm text-slate-500 mb-4">Get the latest AI insights delivered to your inbox.</p>
+<form class="flex gap-2">
+<input class="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm w-full focus:outline-none focus:border-primary" placeholder="Email address" type="email"/>
+<button class="bg-primary text-background-dark px-4 py-2 rounded-lg font-bold text-sm">Join</button>
+</form>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-600">
+<p>© 2024 Neurafrik Solutions. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="hover:text-slate-300" href="#">Privacy Policy</a>
+<a class="hover:text-slate-300" href="#">Terms of Service</a>
+<a class="hover:text-slate-300" href="#">Cookie Policy</a>
+</div>
+</div>
+</footer>
+</body></html>

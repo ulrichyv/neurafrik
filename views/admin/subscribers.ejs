@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="dark" lang="<%= lang %>">
+<head>
+    <%- include('../partials/head', { title: 'Gestion de la Newsletter' }) %>
+</head>
+<body class="bg-background-dark font-display text-slate-100 antialiased min-h-screen">
+    
+    <%- include('sidebar', { activeAdminPage: 'subscribers' }) %>
+
+    <main class="ml-64 p-8 lg:p-12">
+        <header class="mb-12">
+            <h1 class="text-4xl font-black mb-2">Abonnés <span class="text-accent-purple">Newsletter</span></h1>
+            <p class="text-slate-400">Liste des personnes souhaitant recevoir vos actualités.</p>
+        </header>
+
+        <div class="max-w-3xl">
+            <div class="rounded-[2.5rem] bg-white/5 border border-white/10 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="text-slate-500 text-xs uppercase tracking-widest border-b border-white/5">
+                                <th class="px-8 py-4 font-bold">Email de l'abonné</th>
+                                <th class="px-8 py-4 font-bold">Date d'inscription</th>
+                                <th class="px-8 py-4 font-bold text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5">
+                            <% subscribers.forEach(sub => { %>
+                                <tr class="group hover:bg-white/[0.02] transition-colors">
+                                    <td class="px-8 py-6">
+                                        <span class="font-bold text-white"><%= sub.email %></span>
+                                    </td>
+                                    <td class="px-8 py-6 text-sm text-slate-400">
+                                        <%= new Date(sub.timestamp).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }) %>
+                                    </td>
+                                    <td class="px-8 py-6 text-right">
+                                        <button onclick="window.location.href='/admin/subscribers/delete/<%= encodeURIComponent(sub.email) %>'" class="size-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-red-500/10 hover:text-red-400 transition-all ml-auto">
+                                            <span class="material-symbols-outlined">person_remove</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                            <% if (subscribers.length === 0) { %>
+                                <tr>
+                                    <td colspan="3" class="px-8 py-20 text-center text-slate-500 italic">
+                                        <div class="flex flex-col items-center gap-4">
+                                            <span class="material-symbols-outlined text-4xl opacity-20">group_off</span>
+                                            <p>Aucun abonné pour le moment.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

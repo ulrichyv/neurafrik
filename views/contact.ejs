@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="dark" lang="<%= lang %>">
+<head>
+    <%- include('partials/head', { title: t.nav.contact }) %>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+    <%- include('partials/nav', { activePage: 'contact' }) %>
+
+    <main class="pt-20">
+        <!-- Contact Hero -->
+        <section class="relative py-20 overflow-hidden border-b border-white/10">
+            <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #00eeff 1px, transparent 0); background-size: 40px 40px;"></div>
+            <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight text-white">
+                    <%= t.contact.title %> <span class="text-primary"><%= t.contact.title_highlight %></span>
+                </h1>
+                <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                    <%= t.contact.description %>
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <section class="py-24 px-6">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-16">
+                <!-- Info Column -->
+                <div class="space-y-12">
+                    <div class="group">
+                        <div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500">
+                            <span class="material-symbols-outlined text-primary group-hover:text-background-dark">mail</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white"><%= t.contact.email_us %></h3>
+                        <p class="text-slate-300">contact@neurafrik.com</p>
+                    </div>
+
+                    <div class="group">
+                        <div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500">
+                            <span class="material-symbols-outlined text-primary group-hover:text-background-dark">location_on</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white"><%= t.contact.our_office %></h3>
+                        <p class="text-slate-300 text-sm">Cotonou, Benin</p>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-12">
+                        <form id="contact-form" class="space-y-6">
+                             <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="text-sm font-bold text-slate-300 uppercase tracking-widest"><%= t.contact.form_name %></label>
+                                    <input type="text" id="fullName" placeholder="<%= t.contact.form_placeholder_name %>" class="w-full bg-background-dark border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-primary transition-colors text-white">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-bold text-slate-300 uppercase tracking-widest"><%= t.contact.form_email %></label>
+                                    <input type="email" id="email" placeholder="<%= t.contact.form_placeholder_email %>" class="w-full bg-background-dark border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-primary transition-colors text-white">
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-slate-300 uppercase tracking-widest"><%= t.contact.form_interest %></label>
+                                <select id="service" class="w-full bg-background-dark border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-primary transition-colors text-white appearance-none">
+                                    <option><%= t.footer.automation %></option>
+                                    <option><%= t.footer.ai %></option>
+                                    <option><%= t.footer.development %></option>
+                                    <option><%= t.footer.data %></option>
+                                    <option><%= t.footer.consulting %></option>
+                                </select>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-slate-300 uppercase tracking-widest"><%= t.contact.form_message %></label>
+                                <textarea id="message" rows="6" placeholder="<%= t.contact.form_placeholder_message %>" class="w-full bg-background-dark border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-primary transition-colors text-white"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 bg-primary text-background-dark font-bold rounded-xl hover:shadow-[0_0_30px_rgba(0,238,255,0.4)] transition-all">
+                                <%= t.contact.form_submit %>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
+
+            const data = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                if (result.success) {
+                    alert('Message sent successfully!');
+                    e.target.reset();
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (error) {
+                alert('An error occurred. Please try again later.');
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

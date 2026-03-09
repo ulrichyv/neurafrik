@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="dark" lang="<%= lang %>">
+<head>
+    <%- include('../partials/head', { title: 'Gestion des Messages' }) %>
+</head>
+<body class="bg-background-dark font-display text-slate-100 antialiased min-h-screen">
+    
+    <%- include('sidebar', { activeAdminPage: 'messages' }) %>
+
+    <main class="ml-64 p-8 lg:p-12">
+        <header class="mb-12">
+            <h1 class="text-4xl font-black mb-2">Demandes de <span class="text-primary">Contact</span></h1>
+            <p class="text-slate-400">Gérez les prospects et les demandes de devis.</p>
+        </header>
+
+        <div class="rounded-[2.5rem] bg-white/5 border border-white/10 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="text-slate-500 text-xs uppercase tracking-widest border-b border-white/5">
+                            <th class="px-8 py-4 font-bold">Client</th>
+                            <th class="px-8 py-4 font-bold">Service demandé</th>
+                            <th class="px-8 py-4 font-bold">Message</th>
+                            <th class="px-8 py-4 font-bold">Date</th>
+                            <th class="px-8 py-4 font-bold text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5">
+                        <% submissions.forEach(sub => { %>
+                            <tr class="group hover:bg-white/[0.02] transition-colors">
+                                <td class="px-8 py-6">
+                                    <div class="font-bold text-white"><%= sub.fullName %></div>
+                                    <div class="text-xs text-slate-400"><%= sub.email %></div>
+                                </td>
+                                <td class="px-8 py-6">
+                                    <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-tight">
+                                        <%= sub.service %>
+                                    </span>
+                                </td>
+                                <td class="px-8 py-6">
+                                    <p class="text-slate-300 text-sm line-clamp-2 max-w-xs"><%= sub.message %></p>
+                                </td>
+                                <td class="px-8 py-6 text-sm text-slate-400">
+                                    <%= new Date(sub.timestamp).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' }) %>
+                                </td>
+                                <td class="px-8 py-6 text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="window.location.href='/admin/messages/delete/<%= sub.id %>'" class="size-10 rounded-xl flex items-center justify-center text-slate-500 hover:bg-red-500/10 hover:text-red-400 transition-all">
+                                            <span class="material-symbols-outlined">delete</span>
+                                        </button>
+                                        <a href="mailto:<%= sub.email %>" class="size-10 rounded-xl flex items-center justify-center bg-primary/10 text-primary hover:bg-primary hover:text-background-dark transition-all">
+                                            <span class="material-symbols-outlined">reply</span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        <% }) %>
+                        <% if (submissions.length === 0) { %>
+                            <tr>
+                                <td colspan="5" class="px-8 py-20 text-center text-slate-500 italic">
+                                    <div class="flex flex-col items-center gap-4">
+                                        <span class="material-symbols-outlined text-4xl opacity-20">mail_outline</span>
+                                        <p>Aucun message n'a été envoyé pour le moment.</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
