@@ -8,148 +8,258 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 hero-gradient">
-            <div class="absolute inset-0 z-0 opacity-30 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCR0zJG0XUFVrWYBSfoQQfMBoX0szkELrO18InsPJpQDFU6G1t5Vh62ulOXbcGEEVO5YM4vV9TX3rzgyfQVC1f36YoXRUWqJYzx2e0wHYzfNwAYNt5lNRI6n6Lq3Q8VT6lXiiqBpIWQAKjQCe6K_wC6eNW1UnggMwQZNaA8OMLIZiQ4G384nb8oUqC7QeIXBF4vkmX0E0pOciXJOFgjW4c9MZs8ftW_z3JOACGCcEG3L4K1_LmXQ980Ine0Kg9_TnTLr7fMnNop2ad2'); background-size: cover; background-position: center;"></div>
+        <section class="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 hero-gradient overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-30 pointer-events-none transition-opacity duration-1000" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCR0zJG0XUFVrWYBSfoQQfMBoX0szkELrO18InsPJpQDFU6G1t5Vh62ulOXbcGEEVO5YM4vV9TX3rzgyfQVC1f36YoXRUWqJYzx2e0wHYzfNwAYNt5lNRI6n6Lq3Q8VT6lXiiqBpIWQAKjQCe6K_wC6eNW1UnggMwQZNaA8OMLIZiQ4G384nb8oUqC7QeIXBF4vkmX0E0pOciXJOFgjW4c9MZs8ftW_z3JOACGCcEG3L4K1_LmXQ980Ine0Kg9_TnTLr7fMnNop2ad2'); background-size: cover; background-position: center;"></div>
             
-            <div class="max-w-7xl mx-auto text-center relative z-10">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-8">
+            <div class="relative z-10 max-w-5xl text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
                     <span class="relative flex h-2 w-2">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                     </span>
                     <%= t.home.hero_badge %>
                 </div>
-                
-                <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tight leading-[1.1] md:leading-[0.9] text-white">
-                    <%= t.home.hero_title_part1 %> <br class="hidden sm:block"/>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
+                    <%= t.home.hero_title_part1 %> <br/>
                     <span class="text-gradient"><%= t.home.hero_title_gradient %></span>
                 </h1>
-                
-                <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed px-4">
+                <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
                     <%= t.home.hero_description %>
                 </p>
-                
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="/service?lang=<%= lang %>" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-primary text-background-dark font-bold text-lg hover:shadow-[0_0_30px_rgba(0,238,255,0.6)] transition-all flex items-center justify-center text-center">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/service?lang=<%= lang %>" class="px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-accent-purple text-background-dark font-extrabold text-lg hover:scale-105 transition-transform flex items-center justify-center">
                         <%= t.home.get_started %>
                     </a>
-                    <a href="/contact?lang=<%= lang %>" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-nav bg-white/5 border border-white/10 text-white font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center text-center">
+                    <a href="/contact?lang=<%= lang %>" class="px-8 py-4 rounded-xl glass-nav bg-white/5 border border-white/10 text-white font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center">
                         <%= t.home.book_consultation_hero %>
                     </a>
                 </div>
             </div>
 
             <!-- Stats Bar -->
-            <div class="relative md:absolute bottom-0 md:bottom-10 w-full max-w-4xl px-6 mt-12 md:mt-0">
+            <div class="absolute bottom-10 w-full max-w-4xl px-6 hidden md:block">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 glass-nav bg-white/5 border border-white/10 rounded-2xl p-6">
                     <div class="flex items-center gap-4 justify-center md:justify-start">
                         <span class="material-symbols-outlined text-primary text-3xl">rocket_launch</span>
                         <div>
-                            <p class="text-2xl font-bold text-white">100+</p>
-                            <p class="text-xs text-slate-300 uppercase tracking-widest"><%= t.home.stats_smes %></p>
+                            <p class="text-2xl font-bold">100+</p>
+                            <p class="text-xs text-slate-400 uppercase tracking-widest"><%= t.home.stats_smes %></p>
                         </div>
                     </div>
                     <div class="flex items-center gap-4 justify-center border-y md:border-y-0 md:border-x border-white/10 py-4 md:py-0">
-                        <span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+                        <span class="material-symbols-outlined text-accent-purple text-3xl">sentiment_very_satisfied</span>
                         <div>
-                            <p class="text-2xl font-bold text-white">40%</p>
-                            <p class="text-xs text-slate-300 uppercase tracking-widest"><%= t.home.stats_efficiency %></p>
+                            <p class="text-2xl font-bold">95%</p>
+                            <p class="text-xs text-slate-400 uppercase tracking-widest"><%= t.home.stats_efficiency %></p>
                         </div>
                     </div>
                     <div class="flex items-center gap-4 justify-center md:justify-end">
-                        <span class="material-symbols-outlined text-primary text-3xl">public</span>
+                        <span class="material-symbols-outlined text-primary text-3xl">support_agent</span>
                         <div>
-                            <p class="text-2xl font-bold text-white">5+</p>
-                            <p class="text-xs text-slate-300 uppercase tracking-widest"><%= t.home.stats_countries %></p>
+                            <p class="text-2xl font-bold">24/7</p>
+                            <p class="text-xs text-slate-400 uppercase tracking-widest">AI Support</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Features Grid -->
-        <section class="py-32 px-6">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-20">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white"><%= t.home.features_title_part1 %> <span class="text-primary"><%= t.home.features_title_highlight %></span></h2>
-                    <p class="text-slate-300 max-w-2xl mx-auto"><%= t.home.features_description %></p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Feature 1: Automation -->
-                    <div class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
-                        <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-primary text-3xl">settings_suggest</span>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 text-white"><%= t.service.automation_title %></h3>
-                        <p class="text-slate-300 leading-relaxed mb-6"><%= t.service.automation_desc %></p>
-                        <a href="/service?lang=<%= lang %>" class="text-primary font-bold inline-flex items-center gap-2 group/link">
-                            <%= t.home.learn_more %> <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                        </a>
-                    </div>
-
-                    <!-- Feature 2: AI -->
-                    <div class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
-                        <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-primary text-3xl">smart_toy</span>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 text-white"><%= t.service.ai_title %></h3>
-                        <p class="text-slate-300 leading-relaxed mb-6"><%= t.service.ai_desc %></p>
-                        <a href="/service?lang=<%= lang %>" class="text-primary font-bold inline-flex items-center gap-2 group/link">
-                            <%= t.home.learn_more %> <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                        </a>
-                    </div>
-
-                    <!-- Feature 3: Development -->
-                    <div class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
-                        <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-primary text-3xl">code</span>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 text-white"><%= t.service.dev_title %></h3>
-                        <p class="text-slate-300 leading-relaxed mb-6"><%= t.service.dev_desc %></p>
-                        <a href="/service?lang=<%= lang %>" class="text-primary font-bold inline-flex items-center gap-2 group/link">
-                            <%= t.home.learn_more %> <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                        </a>
-                    </div>
-
-                    <!-- Feature 4: Data -->
-                    <div class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
-                        <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-primary text-3xl">query_stats</span>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 text-white"><%= t.service.data_title %></h3>
-                        <p class="text-slate-300 leading-relaxed mb-6"><%= t.service.data_desc %></p>
-                        <a href="/service?lang=<%= lang %>" class="text-primary font-bold inline-flex items-center gap-2 group/link">
-                            <%= t.home.learn_more %> <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                        </a>
-                    </div>
-
-                    <!-- Feature 5: Consulting -->
-                    <div class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
-                        <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-primary text-3xl">lightbulb</span>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 text-white"><%= t.service.consulting_title %></h3>
-                        <p class="text-slate-300 leading-relaxed mb-6"><%= t.service.consulting_desc %></p>
-                        <a href="/service?lang=<%= lang %>" class="text-primary font-bold inline-flex items-center gap-2 group/link">
-                            <%= t.home.learn_more %> <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                        </a>
-                    </div>
+        <!-- Logo Section -->
+        <section class="py-16 border-b border-white/5 bg-background-dark">
+            <div class="max-w-7xl mx-auto px-6">
+                <p class="text-center text-slate-500 text-sm font-medium mb-10 uppercase tracking-[0.2em]"><%= t.home.trusted_by %></p>
+                <div class="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
+                    <div class="h-8 w-32 bg-white/10 rounded-lg flex items-center justify-center text-[10px] font-bold text-slate-500">PARTNER 1</div>
+                    <div class="h-8 w-32 bg-white/10 rounded-lg flex items-center justify-center text-[10px] font-bold text-slate-500">PARTNER 2</div>
+                    <div class="h-8 w-32 bg-white/10 rounded-lg flex items-center justify-center text-[10px] font-bold text-slate-500">PARTNER 3</div>
+                    <div class="h-8 w-32 bg-white/10 rounded-lg flex items-center justify-center text-[10px] font-bold text-slate-500">PARTNER 4</div>
+                    <div class="h-8 w-32 bg-white/10 rounded-lg flex items-center justify-center text-[10px] font-bold text-slate-500">PARTNER 5</div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="py-32 px-6">
-            <div class="max-w-5xl mx-auto rounded-[3rem] bg-gradient-to-br from-primary/20 via-accent-purple/10 to-transparent p-12 md:p-24 text-center border border-white/10 relative overflow-hidden">
-                <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #fff 1px, transparent 0); background-size: 24px 24px;"></div>
-                <h2 class="text-4xl md:text-6xl font-black mb-8 text-white"><%= t.home.cta_title_part1 %> <br/><span class="text-primary"><%= t.home.cta_title_highlight %></span></h2>
-                <p class="text-slate-300 text-xl mb-12 max-w-2xl mx-auto leading-relaxed"><%= t.home.cta_description %></p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-                    <a href="/contact?lang=<%= lang %>" class="w-full sm:w-auto px-10 py-5 bg-primary text-background-dark font-black rounded-2xl text-xl hover:shadow-[0_0_40px_rgba(0,238,255,0.4)] transition-all flex items-center justify-center text-center">
-                        <%= t.home.launch_consultation %>
+        <!-- Services Section -->
+        <section class="py-24 bg-background-dark" id="services">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                    <div class="max-w-2xl">
+                        <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4"><%= t.home.features_title_part1 %></h2>
+                        <h3 class="text-4xl md:text-5xl font-bold"><%= t.home.features_title_highlight %><br/><span class="text-slate-500">modern enterprises.</span></h3>
+                    </div>
+                    <a class="text-primary flex items-center gap-2 font-bold hover:underline" href="/service?lang=<%= lang %>">
+                        <%= t.home.view_capabilities %> <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
-                    <a href="/contact?lang=<%= lang %>" class="text-white font-bold text-xl hover:text-primary transition-colors"><%= t.home.talk_expert %></a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                    <!-- Card 1: AI -->
+                    <div class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all hover:-translate-y-2">
+                        <div class="size-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined text-3xl">smart_toy</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3"><%= t.service.ai_title %></h4>
+                        <p class="text-slate-400 text-sm leading-relaxed"><%= t.service.ai_desc %></p>
+                    </div>
+                    <!-- Card 2: Automation -->
+                    <div class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent-purple/50 transition-all hover:-translate-y-2">
+                        <div class="size-12 rounded-xl bg-accent-purple/20 text-accent-purple flex items-center justify-center mb-6 group-hover:bg-accent-purple group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-3xl">settings_suggest</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-white"><%= t.service.automation_title %></h4>
+                        <p class="text-slate-400 text-sm leading-relaxed"><%= t.service.automation_desc %></p>
+                    </div>
+                    <!-- Card 3: Software Dev -->
+                    <div class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all hover:-translate-y-2">
+                        <div class="size-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined text-3xl">code</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3"><%= t.service.dev_title %></h4>
+                        <p class="text-slate-400 text-sm leading-relaxed"><%= t.service.dev_desc %></p>
+                    </div>
+                    <!-- Card 4: Data -->
+                    <div class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent-purple/50 transition-all hover:-translate-y-2">
+                        <div class="size-12 rounded-xl bg-accent-purple/20 text-accent-purple flex items-center justify-center mb-6 group-hover:bg-accent-purple group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-3xl">query_stats</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-white"><%= t.service.data_title %></h4>
+                        <p class="text-slate-400 text-sm leading-relaxed"><%= t.service.data_desc %></p>
+                    </div>
+                    <!-- Card 5: Consulting -->
+                    <div class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all hover:-translate-y-2">
+                        <div class="size-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-background-dark transition-colors">
+                            <span class="material-symbols-outlined text-3xl">lightbulb</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3"><%= t.service.consulting_title %></h4>
+                        <p class="text-slate-400 text-sm leading-relaxed"><%= t.service.consulting_desc %></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Section -->
+        <section class="py-24 bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -top-10 -left-10 size-64 bg-primary/20 rounded-full blur-[100px]"></div>
+                    <div class="relative rounded-3xl overflow-hidden border border-white/10 aspect-square md:aspect-video lg:aspect-square">
+                        <img alt="Team collaborating on AI" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChxQfVZIBCM5OQRyHIKkCQBow8n0f8yQmSdsw1cbGUQZYGVK0a__wv6Xselfps5i89-xi5Sw9ZqQS7KVJf2GA6jJ5_PifE0WEnTTImHrR9Di0iKvybKSP792LYTxMxS7HpznpykrFiEYBcdEbkY2pa6_lOhS0LPxo5iUiB5HGUmWymizpOIG1EEDrRKTeqRpqHSMQSQvfoGFV1APN-s4Gq4IcUGoH2D0zmhmggQAi0mSwzVQPwHJq95PSa_IpdkqUTaoraDMejrusS"/>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 p-6 glass-nav bg-white/5 border border-white/10 rounded-2xl max-w-xs shadow-2xl">
+                        <p class="text-sm font-medium italic text-slate-300"><%= t.home.mission_quote %></p>
+                        <div class="mt-4 flex items-center gap-3">
+                            <div class="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined">person</span>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold"><%= t.home.ceo_name %></p>
+                                <p class="text-xs text-primary uppercase"><%= t.home.ceo_role %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4"><%= t.home.why_choose_title %></h2>
+                    <h3 class="text-4xl font-bold mb-8 leading-tight"><%= t.home.why_choose_subtitle %> <span class="text-gradient"><%= t.home.why_choose_highlight %></span></h3>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <div class="flex-shrink-0 size-6 rounded-full bg-primary/20 text-primary flex items-center justify-center">
+                                <span class="material-symbols-outlined text-sm">done</span>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg"><%= t.home.benefit_1_title %></h5>
+                                <p class="text-slate-400 text-sm"><%= t.home.benefit_1_desc %></p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="flex-shrink-0 size-6 rounded-full bg-primary/20 text-primary flex items-center justify-center">
+                                <span class="material-symbols-outlined text-sm">done</span>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg"><%= t.home.benefit_2_title %></h5>
+                                <p class="text-slate-400 text-sm"><%= t.home.benefit_2_desc %></p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="flex-shrink-0 size-6 rounded-full bg-primary/20 text-primary flex items-center justify-center">
+                                <span class="material-symbols-outlined text-sm">done</span>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg"><%= t.home.benefit_3_title %></h5>
+                                <p class="text-slate-400 text-sm"><%= t.home.benefit_3_desc %></p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="/about?lang=<%= lang %>" class="mt-10 px-8 py-3 border border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-background-dark transition-all inline-block">
+                        <%= t.home.read_story %>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-24 bg-background-dark overflow-hidden" id="testimonials">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-center text-4xl font-bold mb-16"><%= t.home.testimonials_title %> <span class="text-primary"><%= t.home.testimonials_highlight %></span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="p-8 rounded-2xl bg-white/5 border border-white/10 relative group hover:border-primary/30 transition-all">
+                        <span class="material-symbols-outlined text-6xl text-primary/10 absolute top-4 right-4">format_quote</span>
+                        <p class="text-slate-300 mb-8 relative z-10"><%= t.home.testi_1_text %></p>
+                        <div class="flex items-center gap-4">
+                            <div class="size-12 rounded-full bg-slate-800 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-slate-500">person</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white"><%= t.home.testi_1_name %></p>
+                                <p class="text-xs text-slate-500"><%= t.home.testi_1_role %></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="p-8 rounded-2xl bg-white/5 border border-white/10 relative group hover:border-primary/30 transition-all">
+                        <span class="material-symbols-outlined text-6xl text-primary/10 absolute top-4 right-4">format_quote</span>
+                        <p class="text-slate-300 mb-8 relative z-10"><%= t.home.testi_2_text %></p>
+                        <div class="flex items-center gap-4">
+                            <div class="size-12 rounded-full bg-slate-800 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-slate-500">person</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white"><%= t.home.testi_2_name %></p>
+                                <p class="text-xs text-slate-500"><%= t.home.testi_2_role %></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="p-8 rounded-2xl bg-white/5 border border-white/10 relative group hover:border-primary/30 transition-all">
+                        <span class="material-symbols-outlined text-6xl text-primary/10 absolute top-4 right-4">format_quote</span>
+                        <p class="text-slate-300 mb-8 relative z-10"><%= t.home.testi_3_text %></p>
+                        <div class="flex items-center gap-4">
+                            <div class="size-12 rounded-full bg-slate-800 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-slate-500">person</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white"><%= t.home.testi_3_name %></p>
+                                <p class="text-xs text-slate-500"><%= t.home.testi_3_role %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="py-24 px-6">
+            <div class="max-w-5xl mx-auto rounded-[3rem] bg-gradient-to-br from-primary/20 via-background-dark to-accent-purple/20 border border-white/10 p-12 md:p-24 text-center relative overflow-hidden shadow-2xl">
+                <div class="absolute top-0 right-0 size-64 bg-primary/10 rounded-full blur-[80px] -mr-32 -mt-32"></div>
+                <div class="absolute bottom-0 left-0 size-64 bg-accent-purple/10 rounded-full blur-[80px] -ml-32 -mb-32"></div>
+                <h2 class="text-4xl md:text-5xl font-black mb-6 text-white"><%= t.home.final_cta_title %></h2>
+                <p class="text-xl text-slate-400 mb-12 max-w-xl mx-auto leading-relaxed"><%= t.home.final_cta_desc %></p>
+                <div class="flex flex-wrap justify-center gap-6 relative z-10">
+                    <a href="/contact?lang=<%= lang %>" class="px-10 py-5 bg-primary text-background-dark font-black rounded-xl text-lg hover:shadow-[0_0_40px_rgba(0,238,255,0.5)] transition-all flex items-center justify-center">
+                        <%= t.home.start_free_trial %>
+                    </a>
+                    <a href="/contact?lang=<%= lang %>" class="px-10 py-5 glass-nav bg-white/10 border border-white/20 rounded-xl text-lg font-bold hover:bg-white/20 transition-all flex items-center justify-center">
+                        <%= t.home.speak_expert %>
+                    </a>
                 </div>
             </div>
         </section>
