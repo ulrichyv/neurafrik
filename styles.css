@@ -186,3 +186,20 @@ html {
 .hover\:bg-primary\/10:hover {
   background-color: rgba(0, 238, 255, 0.1);
 }
+
+/* Custom Admin Dashboard Classes */
+.glass-card {
+  background: rgba(15, 34, 35, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 238, 255, 0.1);
+}
+
+.neon-border:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(0, 238, 255, 0.3);
+}
+
+.neon-line {
+  filter: drop-shadow(0 0 4px var(--primary));
+}

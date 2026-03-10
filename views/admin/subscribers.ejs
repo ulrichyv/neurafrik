@@ -7,54 +7,100 @@
     
     <%- include('sidebar', { activeAdminPage: 'subscribers' }) %>
 
-    <main class="ml-64 p-8 lg:p-12">
+    <main class="ml-72 p-8 lg:p-12">
         <header class="mb-12">
             <h1 class="text-4xl font-black mb-2">Abonnés <span class="text-accent-purple">Newsletter</span></h1>
             <p class="text-slate-400">Liste des personnes souhaitant recevoir vos actualités.</p>
         </header>
 
-        <div class="max-w-3xl">
-            <div class="rounded-[2.5rem] bg-white/5 border border-white/10 overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
+        <div class="max-w-4xl">
+            <div class="glass-card rounded-2xl overflow-hidden flex flex-col">
+                <div class="flex-1 overflow-x-auto">
+                    <table id="subscribersTable" class="w-full text-left">
                         <thead>
-                            <tr class="text-slate-500 text-xs uppercase tracking-widest border-b border-white/5">
-                                <th class="px-8 py-4 font-bold">Email de l'abonné</th>
-                                <th class="px-8 py-4 font-bold">Date d'inscription</th>
-                                <th class="px-8 py-4 font-bold text-right">Actions</th>
+                            <tr class="text-[10px] uppercase tracking-wider text-slate-500 border-b border-primary/5">
+                                <th class="px-6 py-4 font-bold">Email de l'abonné</th>
+                                <th class="px-6 py-4 font-bold">Date d'inscription</th>
+                                <th class="px-6 py-4 font-bold text-right">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-white/5">
+                        <tbody class="divide-y divide-primary/5">
                             <% subscribers.forEach(sub => { %>
-                                <tr class="group hover:bg-white/[0.02] transition-colors">
-                                    <td class="px-8 py-6">
-                                        <span class="font-bold text-white"><%= sub.email %></span>
+                                <tr class="hover:bg-primary/5 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-3">
+                                            <div class="size-8 rounded-lg bg-accent-purple/10 flex items-center justify-center text-accent-purple">
+                                                <span class="material-symbols-outlined text-lg">alternate_email</span>
+                                            </div>
+                                            <span class="text-sm font-semibold text-slate-200"><%= sub.email %></span>
+                                        </div>
                                     </td>
-                                    <td class="px-8 py-6 text-sm text-slate-400">
-                                        <%= new Date(sub.timestamp).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }) %>
+                                    <td class="px-6 py-4 text-xs text-slate-400">
+                                        <%= new Date(sub.timestamp).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' }) %>
                                     </td>
-                                    <td class="px-8 py-6 text-right">
-                                        <button onclick="window.location.href='/admin/subscribers/delete/<%= encodeURIComponent(sub.email) %>'" class="size-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-red-500/10 hover:text-red-400 transition-all ml-auto">
-                                            <span class="material-symbols-outlined">person_remove</span>
+                                    <td class="px-6 py-4 text-right">
+                                        <button onclick="if(confirm('Supprimer cet abonné ?')) window.location.href='/admin/subscribers/delete/<%= encodeURIComponent(sub.email) %>'" class="size-8 rounded-lg flex items-center justify-center text-slate-500 hover:bg-red-500/10 hover:text-red-400 transition-all ml-auto inline-flex">
+                                            <span class="material-symbols-outlined text-sm">person_remove</span>
                                         </button>
                                     </td>
                                 </tr>
                             <% }) %>
-                            <% if (subscribers.length === 0) { %>
-                                <tr>
-                                    <td colspan="3" class="px-8 py-20 text-center text-slate-500 italic">
-                                        <div class="flex flex-col items-center gap-4">
-                                            <span class="material-symbols-outlined text-4xl opacity-20">group_off</span>
-                                            <p>Aucun abonné pour le moment.</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            <% } %>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- DataTables CDN -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+
+    <style>
+    .dataTables_wrapper { color: #94a3b8; font-family: 'Inter', sans-serif; font-size: 0.8rem; }
+    .dataTables_filter input {
+        background: rgba(0,238,255,0.05); border: 1px solid rgba(0,238,255,0.15);
+        border-radius: 8px; color: #e2e8f0; padding: 6px 12px; outline: none; transition: all 0.2s;
+    }
+    .dataTables_filter input:focus { border-color: rgba(0,238,255,0.4); box-shadow: 0 0 0 2px rgba(0,238,255,0.1); }
+    .dataTables_filter label, .dataTables_length label { color: #94a3b8; }
+    .dataTables_length select {
+        background: rgba(0,238,255,0.05); border: 1px solid rgba(0,238,255,0.15);
+        border-radius: 8px; color: #e2e8f0; padding: 4px 8px; outline: none;
+    }
+    .dataTables_info { color: #64748b; font-size: 0.75rem; }
+    .dataTables_paginate .paginate_button {
+        border-radius: 8px !important; padding: 4px 10px !important; margin: 0 2px !important;
+        color: #94a3b8 !important; border: none !important; background: transparent !important;
+        font-size: 0.8rem; transition: all 0.2s;
+    }
+    .dataTables_paginate .paginate_button:hover { background: rgba(0,238,255,0.1) !important; color: #00eeff !important; }
+    .dataTables_paginate .paginate_button.current { background: rgba(0,238,255,0.15) !important; color: #00eeff !important; font-weight: 700; }
+    .dataTables_paginate .paginate_button.disabled { color: #334155 !important; cursor: default; }
+    table.dataTable thead th { border-bottom: 1px solid rgba(0,238,255,0.05) !important; cursor: pointer; }
+    table.dataTable thead th.sorting:after { color: rgba(0,238,255,0.3); }
+    table.dataTable thead th.sorting_asc:after, table.dataTable thead th.sorting_desc:after { color: #00eeff; }
+    </style>
+
+    <script>
+    $(document).ready(function() {
+        $('#subscribersTable').DataTable({
+            order: [[1, 'desc']], // Sort by Date column (index 1) descending
+            pageLength: 25,
+            language: {
+                search: '',
+                searchPlaceholder: 'Rechercher un email...',
+                lengthMenu: 'Afficher _MENU_ entrées',
+                info: '_START_–_END_ sur _TOTAL_ abonnés',
+                infoEmpty: 'Aucun abonné',
+                emptyTable: 'Aucun abonné pour le moment.',
+                zeroRecords: 'Aucun abonné trouvé',
+                paginate: { previous: '‹', next: '›', first: '«', last: '»' }
+            },
+            columnDefs: [{ orderable: false, targets: 2 }] // Actions column not sortable
+        });
+    });
+    </script>
 </body>
 </html>

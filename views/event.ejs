@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html class="dark" lang="<%= lang %>">
+<head>
+    <%- include('partials/head', { title: t.event.title }) %>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+    <%- include('partials/nav', { activePage: 'event' }) %>
+
+<main class="flex-grow pt-24">
+    <!-- Hero Section -->
+    <section class="relative py-24 px-6 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]"></div>
+            <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 40px 40px;"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                <%= t.event.badge %>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-display font-extrabold text-white mb-8 tracking-tight leading-tight">
+                <%= t.event.hero_title %> <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"><%= t.event.hero_title_highlight %></span> <%= t.event.hero_title_end %>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                <%= t.event.hero_desc %>
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-primary text-background-dark px-8 py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_15px_rgba(0,238,255,0.4)] flex items-center justify-center gap-2 transition-all">
+                    <%= t.event.explore_btn %> <span class="material-symbols-outlined">arrow_downward</span>
+                </button>
+                <button class="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-8 py-4 rounded-xl font-bold text-lg transition-all">
+                    <%= t.event.past_highlights_btn %>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Grid -->
+    <section class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="flex items-end justify-between mb-12">
+            <div>
+                <h2 class="text-3xl font-display font-bold text-white mb-2"><%= t.event.upcoming_title %></h2>
+                <p class="text-slate-400"><%= t.event.upcoming_desc %></p>
+            </div>
+            <div class="flex gap-2">
+                <button class="p-2 rounded-lg bg-white/5 text-white border border-white/10 hover:bg-primary/20 hover:text-primary transition-all">
+                    <span class="material-symbols-outlined">filter_list</span>
+                </button>
+            </div>
+        </div>
+        
+        <% if (events && events.length > 0) { %>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <% events.forEach(event => { %>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col hover:shadow-[0_0_30px_rgba(0,238,255,0.1)] transition-all duration-300 border border-white/10 hover:border-primary/20">
+                        <!-- Event Image -->
+                        <div class="relative h-48 overflow-hidden">
+                            <% if (event.imageUrl) { %>
+                                <img src="<%= event.imageUrl %>" alt="<%= event.title %>"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent"></div>
+                            <% } else { %>
+                                <div class="w-full h-full bg-gradient-to-br from-primary/10 via-background-dark to-accent-purple/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-6xl text-primary/20">event</span>
+                                </div>
+                            <% } %>
+                            <!-- Type Badge -->
+                            <div class="absolute top-3 left-3 flex items-center gap-2">
+                                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider <%= event.type === 'PAID' ? 'bg-accent-purple text-white' : 'bg-primary text-background-dark' %>">
+                                    <%= event.type || 'FREE' %>
+                                </span>
+                                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/10 text-slate-200 border border-white/10">
+                                    <%= event.category || 'EVENT' %>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6 flex flex-col flex-1">
+                            <h4 class="text-lg font-display font-bold text-white mb-3 group-hover:text-primary transition-colors line-clamp-2"><%= event.title %></h4>
+                            <p class="text-slate-400 text-sm mb-5 line-clamp-3 leading-relaxed"><%= event.description %></p>
+
+                            <div class="flex flex-col gap-2 mb-5 text-xs text-slate-400">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm text-primary">calendar_today</span>
+                                    <span><%= event.date ? new Date(event.date).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'TBD' %></span>
+                                </div>
+                                <% if (event.location) { %>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm text-primary">location_on</span>
+                                    <span><%= event.location %></span>
+                                </div>
+                                <% } %>
+                            </div>
+
+                            <div class="mt-auto pt-4 border-t border-white/5">
+                                <button class="w-full py-2.5 rounded-xl text-sm font-bold transition-all <%= event.type === 'PAID' ? 'bg-accent-purple/10 text-accent-purple hover:bg-accent-purple hover:text-white border border-accent-purple/20' : 'bg-primary/10 text-primary hover:bg-primary hover:text-background-dark border border-primary/20' %> flex items-center justify-center gap-2">
+                                    <%= t.event.view_details %> <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <div class="text-center py-12 bg-white/5 rounded-xl border border-white/10">
+                <span class="material-symbols-outlined text-4xl text-slate-500 mb-4">event_busy</span>
+                <p class="text-slate-400">No events currently scheduled. Check back soon!</p>
+            </div>
+        <% } %>
+    </section>
+
+    <!-- Host Event Call to Action -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-white/10 p-12 relative overflow-hidden text-center md:text-left">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[80px] -mr-32 -mt-32"></div>
+            <div class="relative z-10 md:flex items-center justify-between gap-12">
+                <div class="md:w-2/3">
+                    <h2 class="text-3xl font-display font-bold text-white mb-6"><%= t.event.host_title %></h2>
+                    <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                        <%= t.event.host_desc %>
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-secondary text-white px-8 py-3 rounded-lg font-bold hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] transition-all">
+                            <%= t.event.partner_btn %>
+                        </button>
+                        <button class="bg-white/5 text-white border border-white/10 px-8 py-3 rounded-lg font-bold hover:bg-white/10 transition-all">
+                            <%= t.event.brochure_btn %>
+                        </button>
+                    </div>
+                </div>
+                <div class="hidden md:block md:w-1/3">
+                    <div class="relative flex justify-center">
+                        <div class="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-150"></div>
+                        <span class="material-symbols-outlined text-[160px] text-primary relative z-10">diversity_3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>
+</body>
+</html>

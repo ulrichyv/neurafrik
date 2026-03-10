@@ -1,40 +1,56 @@
-<!-- Admin Sidebar -->
-<div class="w-64 bg-slate-900/50 backdrop-blur-xl border-r border-white/10 flex flex-col h-screen fixed top-0 left-0 z-50">
-    <div class="p-8 border-b border-white/10">
-        <a href="/admin/dashboard" class="flex items-center gap-3 group">
-            <img src="/assets/images/logo.png" alt="Logo" class="size-10 object-contain group-hover:scale-110 transition-transform">
-            <span class="text-xl font-black">Neurafrik <span class="text-primary truncate">Admin</span></span>
-        </a>
+<!-- Sidebar Navigation -->
+<aside class="w-72 flex-shrink-0 flex flex-col border-r border-primary/10 bg-background-dark/80 backdrop-blur-xl h-screen fixed top-0 left-0 z-50">
+    <div class="p-6 flex items-center gap-3">
+        <div class="size-10 bg-primary/20 rounded-xl flex items-center justify-center border border-primary/30">
+            <span class="material-symbols-outlined text-primary text-2xl">neurology</span>
+        </div>
+        <div>
+            <h1 class="text-xl font-bold tracking-tight text-slate-100">Neurafrik</h1>
+            <p class="text-xs text-primary/70 font-medium uppercase tracking-widest">Admin Command</p>
+        </div>
     </div>
-
-    <nav class="flex-1 p-6 space-y-2 mt-4">
-        <a href="/admin/dashboard" class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all <%= activeAdminPage === 'dashboard' ? 'bg-primary text-background-dark font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5' %>">
-            <span class="material-symbols-outlined">dashboard</span>
-            Tableau de bord
+    
+    <nav class="flex-1 px-4 space-y-2 mt-4">
+        <a href="/admin/dashboard" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all group <%= activeAdminPage === 'dashboard' ? 'bg-primary/10 text-primary border border-primary/20 neon-line' : 'text-slate-400 hover:bg-primary/5 hover:text-slate-100' %>">
+            <span class="material-symbols-outlined <%= activeAdminPage === 'dashboard' ? '' : 'group-hover:text-primary' %>">dashboard</span>
+            <span class="font-medium">Overview</span>
         </a>
-        <a href="/admin/messages" class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all <%= activeAdminPage === 'messages' ? 'bg-primary text-background-dark font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5' %>">
-            <span class="material-symbols-outlined">mail</span>
-            Messages
+        <a href="/admin/messages" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all group <%= activeAdminPage === 'messages' ? 'bg-primary/10 text-primary border border-primary/20 neon-line' : 'text-slate-400 hover:bg-primary/5 hover:text-slate-100' %>">
+            <span class="material-symbols-outlined <%= activeAdminPage === 'messages' ? '' : 'group-hover:text-primary' %>">mail</span>
+            <span class="font-medium">Messages</span>
         </a>
-        <a href="/admin/subscribers" class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all <%= activeAdminPage === 'subscribers' ? 'bg-primary text-background-dark font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5' %>">
-            <span class="material-symbols-outlined">group</span>
-            Abonnés
+        <a href="/admin/subscribers" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all group <%= activeAdminPage === 'subscribers' ? 'bg-primary/10 text-primary border border-primary/20 neon-line' : 'text-slate-400 hover:bg-primary/5 hover:text-slate-100' %>">
+            <span class="material-symbols-outlined <%= activeAdminPage === 'subscribers' ? '' : 'group-hover:text-primary' %>">groups</span>
+            <span class="font-medium">Subscribers</span>
+        </a>
+        <a href="/admin/events" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all group <%= activeAdminPage === 'events' ? 'bg-primary/10 text-primary border border-primary/20 neon-line' : 'text-slate-400 hover:bg-primary/5 hover:text-slate-100' %>">
+            <span class="material-symbols-outlined <%= activeAdminPage === 'events' ? '' : 'group-hover:text-primary' %>">event</span>
+            <span class="font-medium">Events</span>
+        </a>
+        <a href="/admin/solutions" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all group <%= activeAdminPage === 'solutions' ? 'bg-primary/10 text-primary border border-primary/20 neon-line' : 'text-slate-400 hover:bg-primary/5 hover:text-slate-100' %>">
+            <span class="material-symbols-outlined <%= activeAdminPage === 'solutions' ? '' : 'group-hover:text-primary' %>">lightbulb</span>
+            <span class="font-medium">Solutions</span>
         </a>
     </nav>
-
-    <div class="p-6 border-t border-white/10">
-        <div class="flex items-center gap-3 mb-6 px-4">
-            <div class="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                <span class="material-symbols-outlined">person</span>
-            </div>
-            <div class="overflow-hidden">
-                <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Connecté en tant que</p>
-                <p class="text-sm font-bold truncate">Administrateur</p>
-            </div>
-        </div>
-        <a href="/admin/logout" class="flex items-center gap-4 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500/10 transition-all font-bold">
-            <span class="material-symbols-outlined">logout</span>
-            Déconnexion
+    
+    <div class="p-4 mt-auto">
+        <a href="/admin/logout" class="flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500/10 transition-all font-bold group">
+            <span class="material-symbols-outlined group-hover:text-red-300">logout</span>
+            <span class="font-medium">Logout</span>
         </a>
+        <div class="mt-4 p-4 rounded-xl" style="background: rgba(15, 34, 35, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(0, 238, 255, 0.1);">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="size-8 rounded-full border-2 border-primary/30 p-0.5" style="background-image: url('https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff'); background-size: cover;"></div>
+                <div>
+                    <p class="text-sm font-semibold text-slate-100">Administrator</p>
+                    <p class="text-[10px] text-primary/70">System Access</p>
+                </div>
+            </div>
+            <p class="text-[10px] text-slate-400 mb-1">System Health</p>
+            <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                <div class="bg-primary h-full w-[100%]" style="box-shadow: 0 0 8px rgba(0, 238, 255, 0.5);"></div>
+            </div>
+            <p class="text-[9px] text-right mt-1 text-primary">100% Operational</p>
+        </div>
     </div>
-</div>
+</aside>

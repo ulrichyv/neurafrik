@@ -11,68 +11,101 @@
         <section class="relative py-20 overflow-hidden border-b border-white/10">
             <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #bc00ff 1px, transparent 0); background-size: 40px 40px;"></div>
             <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    Nos Solutions
+                </div>
                 <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight text-white">
                     <%= t.solution.title_1 %> <span class="text-primary"><%= t.solution.title_highlight %></span>
                 </h1>
                 <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
                     <%= t.solution.description %>
                 </p>
+            </div>
+        </section>
+
         <!-- Solutions Grid -->
         <section class="py-24 px-6 bg-background-dark">
             <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <!-- Card 1: Enterprise AI Strategy -->
-                    <div class="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-all">
-                        <div class="p-8 lg:p-10">
-                            <span class="material-symbols-outlined text-primary text-4xl mb-4">architecture</span>
-                            <h3 class="text-2xl font-bold mb-3 text-white">Enterprise AI Strategy</h3>
-                            <p class="text-slate-300 mb-6 leading-relaxed">Comprehensive roadmap for AI adoption, from infra assessment to custom model development.</p>
-                            <ul class="space-y-4 mb-8">
-                                <li class="flex items-center gap-3 text-slate-200">
-                                    <span class="material-symbols-outlined text-primary text-xl">check_circle</span> Infrastructure Readiness
-                                </li>
-                                <li class="flex items-center gap-3 text-slate-200">
-                                    <span class="material-symbols-outlined text-primary text-xl">check_circle</span> Custom Model Training
-                                </li>
-                            </ul>
-                            <div class="relative h-48 w-full rounded-xl bg-slate-900 border border-white/10 flex items-end justify-center overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent z-10"></div>
-                                <div class="w-3/4 h-32 bg-slate-800 rounded-t-lg border-x border-t border-slate-700 p-4 transform translate-y-4 group-hover:translate-y-2 transition-transform">
-                                    <div class="flex flex-col gap-2">
-                                        <div class="h-2 w-1/2 bg-primary/20 rounded"></div>
-                                        <div class="h-2 w-3/4 bg-slate-700 rounded"></div>
-                                        <div class="h-2 w-2/3 bg-slate-700 rounded"></div>
+
+                <% if (solutions && solutions.length > 0) { %>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <% solutions.forEach(sol => { %>
+                            <div class="group relative glass-card rounded-2xl overflow-hidden hover:border-primary/40 transition-all hover:shadow-[0_0_40px_rgba(0,238,255,0.08)]">
+
+                                <!-- Optional Image Banner -->
+                                <% if (sol.imageUrl) { %>
+                                    <div class="h-52 w-full overflow-hidden relative">
+                                        <img src="<%= sol.imageUrl %>" alt="<%= sol.title %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 to-transparent"></div>
                                     </div>
+                                <% } %>
+
+                                <div class="p-8 lg:p-10">
+                                    <!-- Icon + Category -->
+                                    <div class="flex items-start justify-between mb-4">
+                                        <span class="material-symbols-outlined text-primary text-4xl"><%= sol.icon || 'bolt' %></span>
+                                        <% if (sol.category) { %>
+                                        <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
+                                            <%= sol.category %>
+                                        </span>
+                                        <% } %>
+                                    </div>
+
+                                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-primary transition-colors"><%= sol.title %></h3>
+                                    <p class="text-slate-300 mb-6 leading-relaxed"><%= sol.description %></p>
+
+                                    <!-- Feature List -->
+                                    <% if (sol.features && sol.features.length > 0) { %>
+                                        <ul class="space-y-3 mb-8">
+                                            <% sol.features.forEach(f => { %>
+                                                <li class="flex items-center gap-3 text-slate-200">
+                                                    <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                                    <%= f %>
+                                                </li>
+                                            <% }) %>
+                                        </ul>
+                                    <% } %>
+
+                                    <!-- CTA -->
+                                    <a href="/contact" class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline group-hover:gap-3 transition-all">
+                                        En savoir plus <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                                    </a>
                                 </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                <% } else { %>
+                    <!-- Fallback: Static hardcoded cards if no admin solutions yet -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div class="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-all">
+                            <div class="p-8 lg:p-10">
+                                <span class="material-symbols-outlined text-primary text-4xl mb-4">architecture</span>
+                                <h3 class="text-2xl font-bold mb-3 text-white">Enterprise AI Strategy</h3>
+                                <p class="text-slate-300 mb-6 leading-relaxed">Comprehensive roadmap for AI adoption, from infra assessment to custom model development.</p>
+                                <ul class="space-y-4 mb-8">
+                                    <li class="flex items-center gap-3 text-slate-200"><span class="material-symbols-outlined text-primary text-xl">check_circle</span> Infrastructure Readiness</li>
+                                    <li class="flex items-center gap-3 text-slate-200"><span class="material-symbols-outlined text-primary text-xl">check_circle</span> Custom Model Training</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-all">
+                            <div class="p-8 lg:p-10">
+                                <span class="material-symbols-outlined text-primary text-4xl mb-4">person_search</span>
+                                <h3 class="text-2xl font-bold mb-3 text-white">AI Assistant for Sales Teams</h3>
+                                <p class="text-slate-300 mb-6 leading-relaxed">Intelligent lead scoring and automated CRM management to help your team close high-value deals.</p>
+                                <ul class="space-y-2 mb-8 text-sm text-slate-200">
+                                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">check_circle</span> Predictive Lead Scoring</li>
+                                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">check_circle</span> CRM Enhancement & Enrichment</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <!-- Card 2: AI Assistant for Sales -->
-                    <div class="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-all">
-                        <div class="p-8 lg:p-10">
-                            <span class="material-symbols-outlined text-primary text-4xl mb-4">person_search</span>
-                            <h3 class="text-2xl font-bold mb-3 text-white">AI Assistant for Sales Teams</h3>
-                            <p class="text-slate-300 mb-6 leading-relaxed">Intelligent lead scoring and automated CRM management to help your team focus on closing high-value deals.</p>
-                            <ul class="space-y-2 mb-8 text-sm text-slate-200">
-                                <li class="flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-primary text-base">check_circle</span> Predictive Lead Scoring
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-primary text-base">check_circle</span> CRM Enhancement & Enrichment
-                                </li>
-                            </ul>
-                            <div class="relative h-48 w-full rounded-xl bg-slate-900 border border-white/10 flex items-center justify-center overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent z-10"></div>
-                                <div class="w-4/5 grid grid-cols-2 gap-2 transform group-hover:scale-105 transition-transform">
-                                    <div class="h-20 bg-primary/10 rounded border border-primary/20"></div>
-                                    <div class="h-20 bg-slate-800 rounded border border-slate-700"></div>
-                                    <div class="h-20 bg-slate-800 rounded border border-slate-700"></div>
-                                    <div class="h-20 bg-primary/10 rounded border border-primary/20"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <% } %>
+
             </div>
         </section>
     </main>

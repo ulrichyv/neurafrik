@@ -7,68 +7,143 @@
     
     <%- include('sidebar', { activeAdminPage: 'messages' }) %>
 
-    <main class="ml-64 p-8 lg:p-12">
+    <main class="ml-72 p-8 lg:p-12">
         <header class="mb-12">
             <h1 class="text-4xl font-black mb-2">Demandes de <span class="text-primary">Contact</span></h1>
             <p class="text-slate-400">Gérez les prospects et les demandes de devis.</p>
         </header>
 
-        <div class="rounded-[2.5rem] bg-white/5 border border-white/10 overflow-hidden">
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
+        <div class="glass-card rounded-2xl overflow-hidden flex flex-col">
+            <div class="flex-1 overflow-x-auto">
+                <table id="messagesTable" class="w-full text-left">
                     <thead>
-                        <tr class="text-slate-500 text-xs uppercase tracking-widest border-b border-white/5">
-                            <th class="px-8 py-4 font-bold">Client</th>
-                            <th class="px-8 py-4 font-bold">Service demandé</th>
-                            <th class="px-8 py-4 font-bold">Message</th>
-                            <th class="px-8 py-4 font-bold">Date</th>
-                            <th class="px-8 py-4 font-bold text-right">Actions</th>
+                        <tr class="text-[10px] uppercase tracking-wider text-slate-500 border-b border-primary/5">
+                            <th class="px-6 py-4 font-bold">Client</th>
+                            <th class="px-6 py-4 font-bold">Service demandé</th>
+                            <th class="px-6 py-4 font-bold">Message</th>
+                            <th class="px-6 py-4 font-bold">Date</th>
+                            <th class="px-6 py-4 font-bold text-right">Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-white/5">
+                    <tbody class="divide-y divide-primary/5">
                         <% submissions.forEach(sub => { %>
-                            <tr class="group hover:bg-white/[0.02] transition-colors">
-                                <td class="px-8 py-6">
-                                    <div class="font-bold text-white"><%= sub.fullName %></div>
-                                    <div class="text-xs text-slate-400"><%= sub.email %></div>
+                            <tr class="hover:bg-primary/5 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                                            <span class="material-symbols-outlined text-lg">person</span>
+                                        </div>
+                                        <div>
+                                            <span class="text-sm font-semibold text-slate-200 block"><%= sub.fullName %></span>
+                                            <span class="text-xs text-slate-400"><%= sub.email %></span>
+                                        </div>
+                                    </div>
                                 </td>
-                                <td class="px-8 py-6">
-                                    <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-tight">
+                                <td class="px-6 py-4">
+                                    <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold border border-primary/20 uppercase tracking-tight">
                                         <%= sub.service %>
                                     </span>
                                 </td>
-                                <td class="px-8 py-6">
-                                    <p class="text-slate-300 text-sm line-clamp-2 max-w-xs"><%= sub.message %></p>
+                                <td class="px-6 py-4">
+                                    <p class="text-slate-300 text-xs line-clamp-2 max-w-xs"><%= sub.message %></p>
                                 </td>
-                                <td class="px-8 py-6 text-sm text-slate-400">
+                                <td class="px-6 py-4 text-xs text-slate-400">
                                     <%= new Date(sub.timestamp).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' }) %>
                                 </td>
-                                <td class="px-8 py-6 text-right">
+                                <td class="px-6 py-4 text-right">
                                     <div class="flex items-center justify-end gap-2">
-                                        <button onclick="window.location.href='/admin/messages/delete/<%= sub.id %>'" class="size-10 rounded-xl flex items-center justify-center text-slate-500 hover:bg-red-500/10 hover:text-red-400 transition-all">
-                                            <span class="material-symbols-outlined">delete</span>
-                                        </button>
-                                        <a href="mailto:<%= sub.email %>" class="size-10 rounded-xl flex items-center justify-center bg-primary/10 text-primary hover:bg-primary hover:text-background-dark transition-all">
-                                            <span class="material-symbols-outlined">reply</span>
+                                        <a href="/admin/messages/delete/<%= sub.id %>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce message ?');" class="size-8 rounded-lg flex items-center justify-center text-slate-500 hover:bg-red-500/10 hover:text-red-400 transition-all">
+                                            <span class="material-symbols-outlined text-sm">delete</span>
+                                        </a>
+                                        <a href="mailto:<%= sub.email %>" class="size-8 rounded-lg flex items-center justify-center bg-primary/10 text-primary hover:bg-primary hover:text-background-dark transition-all">
+                                            <span class="material-symbols-outlined text-sm">reply</span>
                                         </a>
                                     </div>
                                 </td>
                             </tr>
                         <% }) %>
-                        <% if (submissions.length === 0) { %>
-                            <tr>
-                                <td colspan="5" class="px-8 py-20 text-center text-slate-500 italic">
-                                    <div class="flex flex-col items-center gap-4">
-                                        <span class="material-symbols-outlined text-4xl opacity-20">mail_outline</span>
-                                        <p>Aucun message n'a été envoyé pour le moment.</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        <% } %>
                     </tbody>
                 </table>
             </div>
         </div>
     </main>
+
+    <!-- DataTables CDN -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+
+    <style>
+    /* === DataTables Neon Theme === */
+    .dataTables_wrapper { color: #94a3b8; font-family: 'Inter', sans-serif; font-size: 0.8rem; }
+    .dataTables_filter input {
+        background: rgba(0,238,255,0.05);
+        border: 1px solid rgba(0,238,255,0.15);
+        border-radius: 8px;
+        color: #e2e8f0;
+        padding: 6px 12px;
+        outline: none;
+        transition: all 0.2s;
+    }
+    .dataTables_filter input:focus { border-color: rgba(0,238,255,0.4); box-shadow: 0 0 0 2px rgba(0,238,255,0.1); }
+    .dataTables_filter label { color: #94a3b8; }
+    .dataTables_length select {
+        background: rgba(0,238,255,0.05);
+        border: 1px solid rgba(0,238,255,0.15);
+        border-radius: 8px;
+        color: #e2e8f0;
+        padding: 4px 8px;
+        outline: none;
+    }
+    .dataTables_length label { color: #94a3b8; }
+    .dataTables_info { color: #64748b; font-size: 0.75rem; }
+    .dataTables_paginate .paginate_button {
+        border-radius: 8px !important;
+        padding: 4px 10px !important;
+        margin: 0 2px !important;
+        color: #94a3b8 !important;
+        border: none !important;
+        background: transparent !important;
+        font-size: 0.8rem;
+        transition: all 0.2s;
+    }
+    .dataTables_paginate .paginate_button:hover {
+        background: rgba(0,238,255,0.1) !important;
+        color: #00eeff !important;
+    }
+    .dataTables_paginate .paginate_button.current {
+        background: rgba(0,238,255,0.15) !important;
+        color: #00eeff !important;
+        font-weight: 700;
+    }
+    .dataTables_paginate .paginate_button.disabled { color: #334155 !important; cursor: default; }
+    table.dataTable thead th {
+        border-bottom: 1px solid rgba(0,238,255,0.05) !important;
+        cursor: pointer;
+    }
+    table.dataTable thead th.sorting:after { color: rgba(0,238,255,0.3); }
+    table.dataTable thead th.sorting_asc:after,
+    table.dataTable thead th.sorting_desc:after { color: #00eeff; }
+    </style>
+
+    <script>
+    $(document).ready(function() {
+        $('#messagesTable').DataTable({
+            order: [[3, 'desc']], // Sort by Date column descending (most recent first)
+            pageLength: 20,
+            language: {
+                search: '',
+                searchPlaceholder: 'Rechercher...',
+                lengthMenu: 'Afficher _MENU_ entrées',
+                info: '_START_–_END_ sur _TOTAL_ messages',
+                infoEmpty: 'Aucun message',
+                emptyTable: 'Aucun message pour le moment.',
+                zeroRecords: 'Aucun message trouvé',
+                paginate: { previous: '‹', next: '›', first: '«', last: '»' }
+            },
+            columnDefs: [{ orderable: false, targets: 4 }] // Actions column not sortable
+        });
+    });
+    </script>
 </body>
 </html>

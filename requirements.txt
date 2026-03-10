@@ -1,0 +1,18 @@
+# Project Requirements
+
+## Runtime environment
+- Node.js (Recommended: LTS)
+- npm or yarn
+
+## Dependencies
+- body-parser ^1.20.2
+- cors ^2.8.5
+- ejs ^3.1.10
+- express ^4.18.2
+- express-session ^1.19.0
+- multer ^2.1.1
+- nodemailer ^6.9.7
+
+## Development
+- Local server: `npm start`
+- Port: 3001 (default)

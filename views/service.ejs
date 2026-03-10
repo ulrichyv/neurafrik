@@ -20,118 +20,102 @@
             </div>
         </section>
 
-        <!-- Services Grid -->
-        <section class="py-24 px-6 bg-background-dark">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Pillar 1: Automation -->
-                    <div class="group p-10 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
-                        <div class="size-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-primary text-4xl">settings_suggest</span>
+        <!-- Services Section -->
+        <section class="py-24 space-y-32 bg-background-dark">
+            <div class="max-w-7xl mx-auto px-6">
+                <!-- Service 1: AI Agents -->
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1">
+                        <div class="inline-flex items-center gap-2 text-primary bg-primary/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                            <span class="material-symbols-outlined text-sm">smart_toy</span>
+                            <%= t.service.new_ai_badge %>
                         </div>
-                        <h3 class="text-3xl font-bold mb-6 text-white group-hover:text-primary transition-colors"><%= t.service.automation_title %></h3>
-                        <p class="text-slate-300 leading-relaxed mb-8 text-lg"><%= t.service.automation_desc %></p>
-                        <ul class="space-y-4 mb-10">
-                            <li class="flex items-center gap-3 text-slate-200">
-                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-                                <%= t.service.automation_item1 %>
-                            </li>
-                            <li class="flex items-center gap-3 text-slate-200">
-                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-                                <%= t.service.automation_item2 %>
-                            </li>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white"><%= t.service.new_ai_title %></h2>
+                        <p class="text-slate-400 text-lg mb-8">
+                            <%= t.service.new_ai_desc %>
+                        </p>
+                        <ul class="space-y-4 mb-8 text-slate-300">
+                            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_ai_li1 %></li>
+                            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_ai_li2 %></li>
+                            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_ai_li3 %></li>
                         </ul>
-                        <a href="/contact?lang=<%= lang %>" class="inline-block px-8 py-4 bg-primary text-background-dark font-bold rounded-xl hover:shadow-[0_0_30px_rgba(0,238,255,0.4)] transition-all">
-                            <%= t.service.button_contact %>
-                        </a>
+                        <button class="border border-primary text-primary px-6 py-3 rounded-lg font-bold hover:bg-primary/10 transition-all"><%= t.service.new_ai_btn %></button>
                     </div>
-
-                    <!-- Pillar 2: AI -->
-                    <div class="group p-10 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
-                        <div class="size-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-primary text-4xl">smart_toy</span>
-                        </div>
-                        <h3 class="text-3xl font-bold mb-6 text-white group-hover:text-primary transition-colors"><%= t.service.ai_title %></h3>
-                        <p class="text-slate-300 leading-relaxed mb-8 text-lg"><%= t.service.ai_desc %></p>
-                        <ul class="space-y-4 mb-10">
-                            <li class="flex items-center gap-3 text-slate-200">
-                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-                                <%= t.service.ai_item1 %>
-                            </li>
-                            <li class="flex items-center gap-3 text-slate-200">
-                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-                                <%= t.service.ai_item2 %>
-                            </li>
-                        </ul>
-                        <a href="/contact?lang=<%= lang %>" class="inline-block px-8 py-4 bg-primary text-background-dark font-bold rounded-xl hover:shadow-[0_0_30px_rgba(0,238,255,0.4)] transition-all">
-                            <%= t.service.button_contact %>
-                        </a>
+                    <div class="order-1 md:order-2 rounded-2xl overflow-hidden border border-white/10 bg-white/5 aspect-video relative group">
+                        <img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Futuristic AI interface visualization with glowing cyan elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe0V5Ss8JlqwjeiZ-jAsI03Y9wFiPmNs7vv15_9sIIOWdfAuW7mILHTIz60VtY4JmnSMRHDLhAAsAj55dVPwfkpKCsBpttGjRQP74A09Sex54exQBvue3cxxw4K5tjBygaye3XdXhydzwzgoB7a_RtAiCY5qOResG3Ecm7I1zrmszx-2xL-4wXFzkBq1wTjuI7FUBw1NPGQ6sBxKgSwDV7nq1Xu5ECsvbohRnr7-chwZaukoC330gI5UlzbH0XzLUucgbsvjJBYZlM"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
                     </div>
+                </div>
 
-                    <!-- Pillar 3: Development -->
-                    <div class="group p-10 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
-                        <div class="size-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-primary text-4xl">code</span>
-                        </div>
-                        <h3 class="text-3xl font-bold mb-6 text-white group-hover:text-primary transition-colors"><%= t.service.dev_title %></h3>
-                        <p class="text-slate-300 leading-relaxed mb-8 text-lg"><%= t.service.dev_desc %></p>
-                        <ul class="space-y-4 mb-10">
-                            <li class="flex items-center gap-3 text-slate-200">
-                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-                                <%= t.service.dev_item1 %>
-                            </li>
-                            <li class="flex items-center gap-3 text-slate-200">
-                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-                                <%= t.service.dev_item2 %>
-                            </li>
-                        </ul>
-                        <a href="/contact?lang=<%= lang %>" class="inline-block px-8 py-4 bg-primary text-background-dark font-bold rounded-xl hover:shadow-[0_0_30px_rgba(0,238,255,0.4)] transition-all">
-                            <%= t.service.button_contact %>
-                        </a>
+                <!-- Service 2: BPA -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mt-32">
+                    <div class="rounded-2xl overflow-hidden border border-white/10 bg-white/5 aspect-video relative group">
+                        <img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Abstract visualization of automated workflow nodes and connections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB57PyD_c2ctz_w7UN_OpULQCnJ8XKN6KCrmbliBVkz6HrjWrj_oeaDsVe_oBD75CslW8pHDKuMaWe-YXIha9Opzf13NEucqbe3FiQIegGSaYZpbgJmbUkqI8txzyRwe16yLB3TTRQDIgdOf6pYJ7xXuX-t_baMK-6U0R3mzPIHhQOexGQYlh9UkvS17OYwyYUOQ8iLSZmEEpuAtllRaSAlS2VgRhmaq9aii1UzqCT-RYdgG3-VjamWChDOEEVrh1SIq-gnxQx4e6WQ"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
                     </div>
-
-                    <!-- Pillar 4: Data -->
-                    <div class="group p-10 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
-                        <div class="size-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-primary text-4xl">query_stats</span>
+                    <div>
+                        <div class="inline-flex items-center gap-2 text-primary bg-primary/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                            <span class="material-symbols-outlined text-sm">settings_suggest</span>
+                            <%= t.service.new_bpa_badge %>
                         </div>
-                        <h3 class="text-3xl font-bold mb-6 text-white group-hover:text-primary transition-colors"><%= t.service.data_title %></h3>
-                        <p class="text-slate-300 leading-relaxed mb-8 text-lg"><%= t.service.data_desc %></p>
-                        <ul class="space-y-4 mb-10">
-                            <li class="flex items-center gap-3 text-slate-200">
-                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-                                <%= t.service.data_item1 %>
-                            </li>
-                            <li class="flex items-center gap-3 text-slate-200">
-                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-                                <%= t.service.data_item2 %>
-                            </li>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white"><%= t.service.new_bpa_title %></h2>
+                        <p class="text-slate-400 text-lg mb-8">
+                            <%= t.service.new_bpa_desc %>
+                        </p>
+                        <ul class="space-y-4 mb-8 text-slate-300">
+                            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_bpa_li1 %></li>
+                            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_bpa_li2 %></li>
+                            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_bpa_li3 %></li>
                         </ul>
-                        <a href="/contact?lang=<%= lang %>" class="inline-block px-8 py-4 bg-primary text-background-dark font-bold rounded-xl hover:shadow-[0_0_30px_rgba(0,238,255,0.4)] transition-all">
-                            <%= t.service.button_contact %>
-                        </a>
+                        <button class="border border-primary text-primary px-6 py-3 rounded-lg font-bold hover:bg-primary/10 transition-all"><%= t.service.new_bpa_btn %></button>
                     </div>
+                </div>
 
-                    <!-- Pillar 5: Consulting -->
-                    <div class="group p-10 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
-                        <div class="size-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-primary text-4xl">lightbulb</span>
+                <!-- Service 3: Software Dev -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mt-32">
+                    <div class="order-2 md:order-1">
+                        <div class="inline-flex items-center gap-2 text-primary bg-primary/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                            <span class="material-symbols-outlined text-sm">code</span>
+                            <%= t.service.new_dev_badge %>
                         </div>
-                        <h3 class="text-3xl font-bold mb-6 text-white group-hover:text-primary transition-colors"><%= t.service.consulting_title %></h3>
-                        <p class="text-slate-300 leading-relaxed mb-8 text-lg"><%= t.service.consulting_desc %></p>
-                        <ul class="space-y-4 mb-10">
-                            <li class="flex items-center gap-3 text-slate-200">
-                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-                                <%= t.service.consulting_item1 %>
-                            </li>
-                            <li class="flex items-center gap-3 text-slate-200">
-                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
-                                <%= t.service.consulting_item2 %>
-                            </li>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white"><%= t.service.new_dev_title %></h2>
+                        <p class="text-slate-400 text-lg mb-8">
+                            <%= t.service.new_dev_desc %>
+                        </p>
+                        <ul class="space-y-4 mb-8 text-slate-300">
+                            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_dev_li1 %></li>
+                            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_dev_li2 %></li>
+                            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_dev_li3 %></li>
                         </ul>
-                        <a href="/contact?lang=<%= lang %>" class="inline-block px-8 py-4 bg-primary text-background-dark font-bold rounded-xl hover:shadow-[0_0_30px_rgba(0,238,255,0.4)] transition-all">
-                            <%= t.service.button_contact %>
-                        </a>
+                        <button class="border border-primary text-primary px-6 py-3 rounded-lg font-bold hover:bg-primary/10 transition-all"><%= t.service.new_dev_btn %></button>
+                    </div>
+                    <div class="order-1 md:order-2 rounded-2xl overflow-hidden border border-white/10 bg-white/5 aspect-video relative group">
+                        <img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Clean lines of source code on a dark computer monitor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAQ-__e4YxFMFGSch5Z3Zvsk1Fe_0Bm3ECtsfML3oCuQCV3fEF4k1sCEvvLfIRxN8kUrIlp7seBQN8T_N8K8J_66c2eIyos048nTwCjcyP3nULWwNkmNL1gWtdg0CZ-dQKGf2xkll0KkFNAC1ejEoNtKUPpzjF4ICc2RbVPSsaCHKccwYBmVijzEJJIbroI_ZdCuSna-VbLt5ANPHPJgqZND0AQvvxlfdRO8Bs7fg9narkh7d5K2WdOpuWDSySsBOdw6k18PMkw5HX"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Service 4: Data Analytics -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mt-32">
+                    <div class="rounded-2xl overflow-hidden border border-white/10 bg-white/5 aspect-video relative group">
+                        <img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Interactive data dashboard with charts and graphs in neon colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfn7pbAFt6DCwmCwS0D8xec7EjEO9NYjFKIzP9EALZBpVtihm9MLunDAPA532UYLT4lxcikhZoKV3U10VUOknBbJ4k14xQjS03F_LoHleZSX_H675ZH3uTFjjJfPcCYHNU0ysjbXMWzL4YBzsl1mpXazLv76QtsfwyfAnwzLgxAOkQA52Jxf0F9CRGUxyetqasUFjQAX4jyeAgc6ANwO1xPtJPbqObBDrDYKZexXxGgy8rTu8v4_W26yPs2QqAYW9iqAI5U6j9VQnh"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
+                    </div>
+                    <div>
+                        <div class="inline-flex items-center gap-2 text-primary bg-primary/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                            <span class="material-symbols-outlined text-sm">query_stats</span>
+                            <%= t.service.new_data_badge %>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white"><%= t.service.new_data_title %></h2>
+                        <p class="text-slate-400 text-lg mb-8">
+                            <%= t.service.new_data_desc %>
+                        </p>
+                        <ul class="space-y-4 mb-8 text-slate-300">
+                            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_data_li1 %></li>
+                            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_data_li2 %></li>
+                            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_data_li3 %></li>
+                        </ul>
+                        <button class="border border-primary text-primary px-6 py-3 rounded-lg font-bold hover:bg-primary/10 transition-all"><%= t.service.new_data_btn %></button>
                     </div>
                 </div>
             </div>
@@ -142,41 +126,40 @@
             <div class="max-w-7xl mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center mb-16 text-white"><%= t.service.engagement_title %> <span class="text-primary"><%= t.service.engagement_highlight %></span></h2>
                 <div class="relative">
-                    <!-- Line (Hidden on mobile) -->
-                    <div class="hidden md:block absolute top-[28px] left-0 w-full h-1 bg-primary/20"></div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
+                    <!-- Line -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-white/10 -translate-y-1/2"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
                         <!-- Step 1 -->
                         <div class="flex flex-col items-center text-center group">
-                            <div class="size-14 rounded-full bg-background-dark border-4 border-primary/20 flex items-center justify-center mb-6 group-hover:border-primary transition-colors relative z-20">
-                                <span class="text-primary font-bold text-lg">01</span>
+                            <div class="size-16 rounded-full bg-background-dark border-4 border-white/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+                                <span class="text-primary font-bold text-xl">01</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-white"><%= t.service.process_1_title %></h3>
-                            <p class="text-slate-300 text-sm"><%= t.service.process_1_desc %></p>
+                            <p class="text-slate-400 text-sm"><%= t.service.process_1_desc %></p>
                         </div>
                         <!-- Step 2 -->
                         <div class="flex flex-col items-center text-center group">
-                            <div class="size-14 rounded-full bg-background-dark border-4 border-primary/20 flex items-center justify-center mb-6 group-hover:border-primary transition-colors relative z-20">
-                                <span class="text-primary font-bold text-lg">02</span>
+                            <div class="size-16 rounded-full bg-background-dark border-4 border-white/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+                                <span class="text-primary font-bold text-xl">02</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-white"><%= t.service.process_2_title %></h3>
-                            <p class="text-slate-300 text-sm"><%= t.service.process_2_desc %></p>
+                            <p class="text-slate-400 text-sm"><%= t.service.process_2_desc %></p>
                         </div>
                         <!-- Step 3 -->
                         <div class="flex flex-col items-center text-center group">
-                            <div class="size-14 rounded-full bg-background-dark border-4 border-primary/20 flex items-center justify-center mb-6 group-hover:border-primary transition-colors relative z-20">
-                                <span class="text-primary font-bold text-lg">03</span>
+                            <div class="size-16 rounded-full bg-background-dark border-4 border-white/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+                                <span class="text-primary font-bold text-xl">03</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-white"><%= t.service.process_3_title %></h3>
-                            <p class="text-slate-300 text-sm"><%= t.service.process_3_desc %></p>
+                            <p class="text-slate-400 text-sm"><%= t.service.process_3_desc %></p>
                         </div>
                         <!-- Step 4 -->
                         <div class="flex flex-col items-center text-center group">
-                            <div class="size-14 rounded-full bg-background-dark border-4 border-primary flex items-center justify-center mb-6 group-hover:border-accent-purple transition-colors relative z-20">
-                                <span class="text-primary font-bold text-lg">04</span>
+                            <div class="size-16 rounded-full bg-background-dark border-4 border-white/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+                                <span class="text-primary font-bold text-xl">04</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-white"><%= t.service.process_4_title %></h3>
-                            <p class="text-slate-300 text-sm"><%= t.service.process_4_desc %></p>
+                            <p class="text-slate-400 text-sm"><%= t.service.process_4_desc %></p>
                         </div>
                     </div>
                 </div>

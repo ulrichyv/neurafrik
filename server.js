@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const session = require('express-session');
+const multer = require('multer');
 const db = require('./utils/db');
 
 const app = express();
@@ -15,7 +16,36 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const fs = require('fs');
 
-// Session configuration
+// === Multer: Events ===
+const eventImagesDir = path.join(__dirname, 'assets', 'images', 'events');
+if (!fs.existsSync(eventImagesDir)) fs.mkdirSync(eventImagesDir, { recursive: true });
+
+const imageFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('image/')) cb(null, true);
+  else cb(new Error('Only image files are allowed'));
+};
+
+const eventStorage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, eventImagesDir),
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    cb(null, `event-${Date.now()}${ext}`);
+  }
+});
+const upload = multer({ storage: eventStorage, limits: { fileSize: 5 * 1024 * 1024 }, fileFilter: imageFilter });
+
+// === Multer: Solutions ===
+const solutionImagesDir = path.join(__dirname, 'assets', 'images', 'solutions');
+if (!fs.existsSync(solutionImagesDir)) fs.mkdirSync(solutionImagesDir, { recursive: true });
+
+const solutionStorage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, solutionImagesDir),
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    cb(null, `solution-${Date.now()}${ext}`);
+  }
+});
+const uploadSolution = multer({ storage: solutionStorage, limits: { fileSize: 5 * 1024 * 1024 }, fileFilter: imageFilter });
 app.use(session({
   secret: 'neurafrik-secret-key-2024',
   resave: false,
@@ -66,7 +96,18 @@ app.get('/', (req, res) => {
   res.render('home', { activePage: 'home' });
 });
 
-pages.forEach(page => {
+app.get('/event', (req, res) => {
+  const events = db.getEvents().reverse(); // Show newest first
+  res.render('event', { activePage: 'event', events });
+});
+
+app.get('/solution', (req, res) => {
+  const solutions = db.getSolutions().reverse();
+  res.render('solution', { activePage: 'solution', solutions });
+});
+
+// Other static pages
+['home', 'about', 'service', 'contact'].forEach(page => {
   app.get(`/${page}`, (req, res) => {
     res.render(page, { activePage: page });
   });
@@ -201,7 +242,54 @@ app.get('/admin/subscribers/delete/:email', isAdmin, (req, res) => {
   res.redirect('/admin/subscribers');
 });
 
-// Error handling
+// Admin Events List
+app.get('/admin/events', isAdmin, (req, res) => {
+  res.render('admin/events', {
+    events: db.getEvents().reverse()
+  });
+});
+
+// Admin Create Event (with image upload)
+app.post('/admin/events/create', isAdmin, upload.single('image'), (req, res) => {
+  const { title, category, description, date, type, location } = req.body;
+  const imageUrl = req.file ? `/assets/images/events/${req.file.filename}` : null;
+  
+  if (title && description && date) {
+    db.saveEvent({ title, category, description, date, type, location, imageUrl });
+  }
+  
+  res.redirect('/admin/events');
+});
+
+// Admin Delete Event
+app.get('/admin/events/delete/:id', isAdmin, (req, res) => {
+  db.deleteEvent(req.params.id);
+  res.redirect('/admin/events');
+});
+
+// Admin Solutions List
+app.get('/admin/solutions', isAdmin, (req, res) => {
+  res.render('admin/solutions', {
+    solutions: db.getSolutions().reverse()
+  });
+});
+
+// Admin Create Solution (with image upload)
+app.post('/admin/solutions/create', isAdmin, upload.single('image'), (req, res) => {
+  const { title, icon, category, description, features } = req.body;
+  const imageUrl = req.file ? `/assets/images/solutions/${req.file.filename}` : null;
+  const featuresArray = features ? features.split('\n').map(f => f.trim()).filter(f => f) : [];
+  if (title && description) {
+    db.saveSolution({ title, icon: icon || 'bolt', category, description, features: featuresArray, imageUrl });
+  }
+  res.redirect('/admin/solutions');
+});
+
+// Admin Delete Solution
+app.get('/admin/solutions/delete/:id', isAdmin, (req, res) => {
+  db.deleteSolution(req.params.id);
+  res.redirect('/admin/solutions');
+});
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ 
