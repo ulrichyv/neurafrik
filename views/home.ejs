@@ -9,7 +9,8 @@
     <main>
         <!-- Hero Section -->
         <section class="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 hero-gradient overflow-hidden">
-            <div class="absolute inset-0 z-0 opacity-30 pointer-events-none transition-opacity duration-1000" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCR0zJG0XUFVrWYBSfoQQfMBoX0szkELrO18InsPJpQDFU6G1t5Vh62ulOXbcGEEVO5YM4vV9TX3rzgyfQVC1f36YoXRUWqJYzx2e0wHYzfNwAYNt5lNRI6n6Lq3Q8VT6lXiiqBpIWQAKjQCe6K_wC6eNW1UnggMwQZNaA8OMLIZiQ4G384nb8oUqC7QeIXBF4vkmX0E0pOciXJOFgjW4c9MZs8ftW_z3JOACGCcEG3L4K1_LmXQ980Ine0Kg9_TnTLr7fMnNop2ad2'); background-size: cover; background-position: center;"></div>
+            <div class="absolute inset-0 z-0 opacity-20 pointer-events-none transition-opacity duration-1000" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCR0zJG0XUFVrWYBSfoQQfMBoX0szkELrO18InsPJpQDFU6G1t5Vh62ulOXbcGEEVO5YM4vV9TX3rzgyfQVC1f36YoXRUWqJYzx2e0wHYzfNwAYNt5lNRI6n6Lq3Q8VT6lXiiqBpIWQAKjQCe6K_wC6eNW1UnggMwQZNaA8OMLIZiQ4G384nb8oUqC7QeIXBF4vkmX0E0pOciXJOFgjW4c9MZs8ftW_z3JOACGCcEG3L4K1_LmXQ980Ine0Kg9_TnTLr7fMnNop2ad2'); background-size: cover; background-position: center;"></div>
+            <div class="absolute inset-0 z-0 bg-overlay-darker pointer-events-none"></div>
             
             <div class="relative z-10 max-w-5xl text-center">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
@@ -19,11 +20,11 @@
                     </span>
                     <%= t.home.hero_badge %>
                 </div>
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6 text-white text-shadow-premium">
                     <%= t.home.hero_title_part1 %> <br/>
                     <span class="text-gradient"><%= t.home.hero_title_gradient %></span>
                 </h1>
-                <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+                <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed text-slate-300">
                     <%= t.home.hero_description %>
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -67,13 +68,13 @@
         <!-- Logo Section -->
         <section class="py-16 border-b border-white/5 bg-background-dark">
             <div class="max-w-7xl mx-auto px-6">
-                <p class="text-center text-slate-500 text-sm font-medium mb-10 uppercase tracking-[0.2em]"><%= t.home.trusted_by %></p>
-                <div class="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
-                    <div class="h-8 w-32 bg-white/10 rounded-lg flex items-center justify-center text-[10px] font-bold text-slate-500">PARTNER 1</div>
-                    <div class="h-8 w-32 bg-white/10 rounded-lg flex items-center justify-center text-[10px] font-bold text-slate-500">PARTNER 2</div>
-                    <div class="h-8 w-32 bg-white/10 rounded-lg flex items-center justify-center text-[10px] font-bold text-slate-500">PARTNER 3</div>
-                    <div class="h-8 w-32 bg-white/10 rounded-lg flex items-center justify-center text-[10px] font-bold text-slate-500">PARTNER 4</div>
-                    <div class="h-8 w-32 bg-white/10 rounded-lg flex items-center justify-center text-[10px] font-bold text-slate-500">PARTNER 5</div>
+                <p class="text-center text-slate-400 text-sm font-medium mb-10 uppercase tracking-[0.2em]"><%= t.home.trusted_by %></p>
+                <div class="flex flex-wrap justify-center items-center gap-12 opacity-60 hover:opacity-100 transition-all">
+                    <div class="h-10 w-36 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-xs font-bold text-slate-400">PARTNER 1</div>
+                    <div class="h-10 w-36 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-xs font-bold text-slate-400">PARTNER 2</div>
+                    <div class="h-10 w-36 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-xs font-bold text-slate-400">PARTNER 3</div>
+                    <div class="h-10 w-36 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-xs font-bold text-slate-400">PARTNER 4</div>
+                    <div class="h-10 w-36 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-xs font-bold text-slate-400">PARTNER 5</div>
                 </div>
             </div>
         </section>
@@ -84,7 +85,7 @@
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                     <div class="max-w-2xl">
                         <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4"><%= t.home.features_title_part1 %></h2>
-                        <h3 class="text-4xl md:text-5xl font-bold"><%= t.home.features_title_highlight %><br/><span class="text-slate-500">modern enterprises.</span></h3>
+                        <h3 class="text-4xl md:text-5xl font-bold text-white"><%= t.home.features_title_highlight %><br/><span class="text-slate-400">modern enterprises.</span></h3>
                     </div>
                     <a class="text-primary flex items-center gap-2 font-bold hover:underline" href="/service?lang=<%= lang %>">
                         <%= t.home.view_capabilities %> <span class="material-symbols-outlined">arrow_forward</span>
@@ -96,8 +97,8 @@
                         <div class="size-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-background-dark transition-colors">
                             <span class="material-symbols-outlined text-3xl">smart_toy</span>
                         </div>
-                        <h4 class="text-xl font-bold mb-3"><%= t.service.ai_title %></h4>
-                        <p class="text-slate-400 text-sm leading-relaxed"><%= t.service.ai_desc %></p>
+                        <h4 class="text-xl font-bold mb-3 text-white"><%= t.service.ai_title %></h4>
+                        <p class="text-slate-300 text-sm leading-relaxed"><%= t.service.ai_desc %></p>
                     </div>
                     <!-- Card 2: Automation -->
                     <div class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent-purple/50 transition-all hover:-translate-y-2">
@@ -105,15 +106,15 @@
                             <span class="material-symbols-outlined text-3xl">settings_suggest</span>
                         </div>
                         <h4 class="text-xl font-bold mb-3 text-white"><%= t.service.automation_title %></h4>
-                        <p class="text-slate-400 text-sm leading-relaxed"><%= t.service.automation_desc %></p>
+                        <p class="text-slate-300 text-sm leading-relaxed"><%= t.service.automation_desc %></p>
                     </div>
                     <!-- Card 3: Software Dev -->
                     <div class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all hover:-translate-y-2">
                         <div class="size-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-background-dark transition-colors">
                             <span class="material-symbols-outlined text-3xl">code</span>
                         </div>
-                        <h4 class="text-xl font-bold mb-3"><%= t.service.dev_title %></h4>
-                        <p class="text-slate-400 text-sm leading-relaxed"><%= t.service.dev_desc %></p>
+                        <h4 class="text-xl font-bold mb-3 text-white"><%= t.service.dev_title %></h4>
+                        <p class="text-slate-300 text-sm leading-relaxed"><%= t.service.dev_desc %></p>
                     </div>
                     <!-- Card 4: Data -->
                     <div class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent-purple/50 transition-all hover:-translate-y-2">
@@ -121,15 +122,15 @@
                             <span class="material-symbols-outlined text-3xl">query_stats</span>
                         </div>
                         <h4 class="text-xl font-bold mb-3 text-white"><%= t.service.data_title %></h4>
-                        <p class="text-slate-400 text-sm leading-relaxed"><%= t.service.data_desc %></p>
+                        <p class="text-slate-300 text-sm leading-relaxed"><%= t.service.data_desc %></p>
                     </div>
                     <!-- Card 5: Consulting -->
                     <div class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all hover:-translate-y-2">
                         <div class="size-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-background-dark transition-colors">
                             <span class="material-symbols-outlined text-3xl">lightbulb</span>
                         </div>
-                        <h4 class="text-xl font-bold mb-3"><%= t.service.consulting_title %></h4>
-                        <p class="text-slate-400 text-sm leading-relaxed"><%= t.service.consulting_desc %></p>
+                        <h4 class="text-xl font-bold mb-3 text-white"><%= t.service.consulting_title %></h4>
+                        <p class="text-slate-300 text-sm leading-relaxed"><%= t.service.consulting_desc %></p>
                     </div>
                 </div>
             </div>
@@ -150,40 +151,42 @@
                                 <span class="material-symbols-outlined">person</span>
                             </div>
                             <div>
-                                <p class="text-sm font-bold"><%= t.home.ceo_name %></p>
-                                <p class="text-xs text-primary uppercase"><%= t.home.ceo_role %></p>
+                                <p class="text-sm font-bold text-white"><%= t.home.ceo_name %></p>
+                                <p class="text-xs text-primary uppercase font-bold"><%= t.home.ceo_role %></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
                     <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4"><%= t.home.why_choose_title %></h2>
-                    <h3 class="text-4xl font-bold mb-8 leading-tight"><%= t.home.why_choose_subtitle %> <span class="text-gradient"><%= t.home.why_choose_highlight %></span></h3>
+                    <h3 class="text-4xl font-bold mb-8 leading-tight text-white"><%= t.home.why_choose_subtitle %> <span class="text-gradient"><%= t.home.why_choose_highlight %></span></h3>
                     <ul class="space-y-6">
                         <li class="flex gap-4">
                             <div class="flex-shrink-0 size-6 rounded-full bg-primary/20 text-primary flex items-center justify-center">
                                 <span class="material-symbols-outlined text-sm">done</span>
                             </div>
                             <div>
-                                <h5 class="font-bold text-lg"><%= t.home.benefit_1_title %></h5>
+                                <h5 class="font-bold text-lg text-white"><%= t.home.benefit_1_title %></h5>
                                 <p class="text-slate-400 text-sm"><%= t.home.benefit_1_desc %></p>
                             </div>
                         </li>
+...
                         <li class="flex gap-4">
                             <div class="flex-shrink-0 size-6 rounded-full bg-primary/20 text-primary flex items-center justify-center">
                                 <span class="material-symbols-outlined text-sm">done</span>
                             </div>
                             <div>
-                                <h5 class="font-bold text-lg"><%= t.home.benefit_2_title %></h5>
+                                <h5 class="font-bold text-lg text-white"><%= t.home.benefit_2_title %></h5>
                                 <p class="text-slate-400 text-sm"><%= t.home.benefit_2_desc %></p>
                             </div>
                         </li>
+...
                         <li class="flex gap-4">
                             <div class="flex-shrink-0 size-6 rounded-full bg-primary/20 text-primary flex items-center justify-center">
                                 <span class="material-symbols-outlined text-sm">done</span>
                             </div>
                             <div>
-                                <h5 class="font-bold text-lg"><%= t.home.benefit_3_title %></h5>
+                                <h5 class="font-bold text-lg text-white"><%= t.home.benefit_3_title %></h5>
                                 <p class="text-slate-400 text-sm"><%= t.home.benefit_3_desc %></p>
                             </div>
                         </li>
@@ -210,7 +213,7 @@
                             </div>
                             <div>
                                 <p class="font-bold text-white"><%= t.home.testi_1_name %></p>
-                                <p class="text-xs text-slate-500"><%= t.home.testi_1_role %></p>
+                                <p class="text-xs text-slate-400 font-medium"><%= t.home.testi_1_role %></p>
                             </div>
                         </div>
                     </div>
@@ -224,7 +227,7 @@
                             </div>
                             <div>
                                 <p class="font-bold text-white"><%= t.home.testi_2_name %></p>
-                                <p class="text-xs text-slate-500"><%= t.home.testi_2_role %></p>
+                                <p class="text-xs text-slate-400 font-medium"><%= t.home.testi_2_role %></p>
                             </div>
                         </div>
                     </div>
@@ -238,7 +241,7 @@
                             </div>
                             <div>
                                 <p class="font-bold text-white"><%= t.home.testi_3_name %></p>
-                                <p class="text-xs text-slate-500"><%= t.home.testi_3_role %></p>
+                                <p class="text-xs text-slate-400 font-medium"><%= t.home.testi_3_role %></p>
                             </div>
                         </div>
                     </div>
@@ -251,8 +254,8 @@
             <div class="max-w-5xl mx-auto rounded-[3rem] bg-gradient-to-br from-primary/20 via-background-dark to-accent-purple/20 border border-white/10 p-12 md:p-24 text-center relative overflow-hidden shadow-2xl">
                 <div class="absolute top-0 right-0 size-64 bg-primary/10 rounded-full blur-[80px] -mr-32 -mt-32"></div>
                 <div class="absolute bottom-0 left-0 size-64 bg-accent-purple/10 rounded-full blur-[80px] -ml-32 -mb-32"></div>
-                <h2 class="text-4xl md:text-5xl font-black mb-6 text-white"><%= t.home.final_cta_title %></h2>
-                <p class="text-xl text-slate-400 mb-12 max-w-xl mx-auto leading-relaxed"><%= t.home.final_cta_desc %></p>
+                <h2 class="text-4xl md:text-5xl font-black mb-6 text-white text-shadow-premium"><%= t.home.final_cta_title %></h2>
+                <p class="text-xl text-slate-300 mb-12 max-w-xl mx-auto leading-relaxed"><%= t.home.final_cta_desc %></p>
                 <div class="flex flex-wrap justify-center gap-6 relative z-10">
                     <a href="/contact?lang=<%= lang %>" class="px-10 py-5 bg-primary text-background-dark font-black rounded-xl text-lg hover:shadow-[0_0_40px_rgba(0,238,255,0.5)] transition-all flex items-center justify-center">
                         <%= t.home.start_free_trial %>
