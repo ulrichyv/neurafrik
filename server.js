@@ -251,11 +251,21 @@ app.get('/admin/events', isAdmin, (req, res) => {
 
 // Admin Create Event (with image upload)
 app.post('/admin/events/create', isAdmin, upload.single('image'), (req, res) => {
-  const { title, category, description, date, type, location } = req.body;
+  const { title, category, description, date, type, location, isPriority } = req.body;
   const imageUrl = req.file ? `/assets/images/events/${req.file.filename}` : null;
+  const priorityStatus = isPriority === 'on' || isPriority === 'true' || isPriority === true;
   
   if (title && description && date) {
-    db.saveEvent({ title, category, description, date, type, location, imageUrl });
+    db.saveEvent({ 
+      title, 
+      category, 
+      description, 
+      date, 
+      type, 
+      location, 
+      imageUrl,
+      isPriority: priorityStatus
+    });
   }
   
   res.redirect('/admin/events');

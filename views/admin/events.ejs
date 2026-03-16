@@ -34,16 +34,30 @@
                                     <div class="h-40 w-full overflow-hidden relative">
                                         <img src="<%= evt.imageUrl %>" alt="<%= evt.title %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                         <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
-                                        <span class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[10px] font-bold border uppercase tracking-tight <%= evt.type === 'PAID' ? 'bg-accent-purple/80 text-white border-accent-purple/20' : 'bg-primary/80 text-background-dark border-primary/20' %>">
-                                            <%= evt.type %>
-                                        </span>
+                                        <div class="absolute top-3 right-3 flex flex-col gap-2 items-end">
+                                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold border uppercase tracking-tight <%= evt.type === 'PAID' ? 'bg-accent-purple/80 text-white border-accent-purple/20' : 'bg-primary/80 text-background-dark border-primary/20' %>">
+                                                <%= evt.type %>
+                                            </span>
+                                            <% if (evt.isPriority) { %>
+                                                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500 text-white border border-amber-400/20 uppercase tracking-tight shadow-[0_0_10px_rgba(245,158,11,0.3)]">
+                                                    PRIORITÉ
+                                                </span>
+                                            <% } %>
+                                        </div>
                                     </div>
                                 <% } else { %>
                                     <div class="h-32 w-full flex items-center justify-center bg-gradient-to-br from-primary/5 to-background-dark relative">
                                         <span class="material-symbols-outlined text-5xl text-primary/30">event</span>
-                                        <span class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[10px] font-bold border uppercase tracking-tight <%= evt.type === 'PAID' ? 'bg-accent-purple/20 text-accent-purple border-accent-purple/20' : 'bg-primary/10 text-primary border-primary/20' %>">
-                                            <%= evt.type %>
-                                        </span>
+                                        <div class="absolute top-3 right-3 flex flex-col gap-2 items-end">
+                                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold border uppercase tracking-tight <%= evt.type === 'PAID' ? 'bg-accent-purple/20 text-accent-purple border-accent-purple/20' : 'bg-primary/10 text-primary border-primary/20' %>">
+                                                <%= evt.type %>
+                                            </span>
+                                            <% if (evt.isPriority) { %>
+                                                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/20 uppercase tracking-tight">
+                                                    PRIORITÉ
+                                                </span>
+                                            <% } %>
+                                        </div>
                                     </div>
                                 <% } %>
 
@@ -135,6 +149,10 @@
                         <div>
                             <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Lieu</label>
                             <input type="text" name="location" placeholder="En ligne ou Ville" required class="w-full bg-primary/5 border border-primary/10 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/40 text-slate-100 transition-all">
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-amber-500/5 border border-amber-500/10 rounded-xl">
+                            <input type="checkbox" name="isPriority" id="isPriority" class="w-4 h-4 rounded border-amber-500/30 bg-background-dark text-amber-500 focus:ring-amber-500/50">
+                            <label for="isPriority" class="text-xs font-bold text-amber-200 cursor-pointer">Mettre cet événement en priorité (Plein écran)</label>
                         </div>
                         <button type="submit" class="w-full bg-primary text-background-dark font-bold py-3 rounded-xl hover:shadow-[0_0_20px_rgba(0,238,255,0.4)] transition-all flex justify-center items-center gap-2 mt-2">
                             <span class="material-symbols-outlined">add</span> Créer l'événement

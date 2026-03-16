@@ -11,10 +11,10 @@
         <section class="relative py-20 overflow-hidden border-b border-white/10">
             <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #00eeff 1px, transparent 0); background-size: 40px 40px;"></div>
             <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-                <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight text-white">
+                <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight text-white animate-fade-in-up">
                     <%= t.service.title %> <span class="text-primary"><%= t.service.title_highlight %></span>
                 </h1>
-                <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-100">
                     <%= t.service.description %>
                 </p>
             </div>
@@ -25,7 +25,7 @@
             <div class="max-w-7xl mx-auto px-6">
                 <!-- Service 1: AI Agents -->
                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="order-2 md:order-1">
+                    <div class="order-2 md:order-1 reveal reveal-left">
                         <div class="inline-flex items-center gap-2 text-primary bg-primary/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
                             <span class="material-symbols-outlined text-sm">smart_toy</span>
                             <%= t.service.new_ai_badge %>
@@ -39,9 +39,9 @@
                             <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_ai_li2 %></li>
                             <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_ai_li3 %></li>
                         </ul>
-                        <button class="border border-primary text-primary px-6 py-3 rounded-lg font-bold hover:bg-primary/10 transition-all"><%= t.service.new_ai_btn %></button>
+                        <button class="border border-primary text-primary px-6 py-3 rounded-lg font-bold hover:bg-primary/10 transition-all hover-lift"><%= t.service.new_ai_btn %></button>
                     </div>
-                    <div class="order-1 md:order-2 rounded-2xl overflow-hidden border border-white/10 bg-white/5 aspect-video relative group">
+                    <div class="order-1 md:order-2 rounded-2xl overflow-hidden border border-white/10 bg-white/5 aspect-video relative group reveal reveal-right">
                         <img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Futuristic AI interface visualization with glowing cyan elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe0V5Ss8JlqwjeiZ-jAsI03Y9wFiPmNs7vv15_9sIIOWdfAuW7mILHTIz60VtY4JmnSMRHDLhAAsAj55dVPwfkpKCsBpttGjRQP74A09Sex54exQBvue3cxxw4K5tjBygaye3XdXhydzwzgoB7a_RtAiCY5qOResG3Ecm7I1zrmszx-2xL-4wXFzkBq1wTjuI7FUBw1NPGQ6sBxKgSwDV7nq1Xu5ECsvbohRnr7-chwZaukoC330gI5UlzbH0XzLUucgbsvjJBYZlM"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
                     </div>
@@ -49,11 +49,11 @@
 
                 <!-- Service 2: BPA -->
                 <div class="grid md:grid-cols-2 gap-12 items-center mt-32">
-                    <div class="rounded-2xl overflow-hidden border border-white/10 bg-white/5 aspect-video relative group">
+                    <div class="rounded-2xl overflow-hidden border border-white/10 bg-white/5 aspect-video relative group reveal reveal-left">
                         <img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Abstract visualization of automated workflow nodes and connections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB57PyD_c2ctz_w7UN_OpULQCnJ8XKN6KCrmbliBVkz6HrjWrj_oeaDsVe_oBD75CslW8pHDKuMaWe-YXIha9Opzf13NEucqbe3FiQIegGSaYZpbgJmbUkqI8txzyRwe16yLB3TTRQDIgdOf6pYJ7xXuX-t_baMK-6U0R3mzPIHhQOexGQYlh9UkvS17OYwyYUOQ8iLSZmEEpuAtllRaSAlS2VgRhmaq9aii1UzqCT-RYdgG3-VjamWChDOEEVrh1SIq-gnxQx4e6WQ"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
                     </div>
-                    <div>
+                    <div class="reveal reveal-right">
                         <div class="inline-flex items-center gap-2 text-primary bg-primary/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
                             <span class="material-symbols-outlined text-sm">settings_suggest</span>
                             <%= t.service.new_bpa_badge %>
@@ -67,13 +67,13 @@
                             <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_bpa_li2 %></li>
                             <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_bpa_li3 %></li>
                         </ul>
-                        <button class="border border-primary text-primary px-6 py-3 rounded-lg font-bold hover:bg-primary/10 transition-all"><%= t.service.new_bpa_btn %></button>
+                        <button class="border border-primary text-primary px-6 py-3 rounded-lg font-bold hover:bg-primary/10 transition-all hover-lift"><%= t.service.new_bpa_btn %></button>
                     </div>
                 </div>
 
                 <!-- Service 3: Software Dev -->
                 <div class="grid md:grid-cols-2 gap-12 items-center mt-32">
-                    <div class="order-2 md:order-1">
+                    <div class="order-2 md:order-1 reveal reveal-left">
                         <div class="inline-flex items-center gap-2 text-primary bg-primary/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
                             <span class="material-symbols-outlined text-sm">code</span>
                             <%= t.service.new_dev_badge %>
@@ -87,9 +87,9 @@
                             <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_dev_li2 %></li>
                             <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_dev_li3 %></li>
                         </ul>
-                        <button class="border border-primary text-primary px-6 py-3 rounded-lg font-bold hover:bg-primary/10 transition-all"><%= t.service.new_dev_btn %></button>
+                        <button class="border border-primary text-primary px-6 py-3 rounded-lg font-bold hover:bg-primary/10 transition-all hover-lift"><%= t.service.new_dev_btn %></button>
                     </div>
-                    <div class="order-1 md:order-2 rounded-2xl overflow-hidden border border-white/10 bg-white/5 aspect-video relative group">
+                    <div class="order-1 md:order-2 rounded-2xl overflow-hidden border border-white/10 bg-white/5 aspect-video relative group reveal reveal-right">
                         <img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Clean lines of source code on a dark computer monitor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAQ-__e4YxFMFGSch5Z3Zvsk1Fe_0Bm3ECtsfML3oCuQCV3fEF4k1sCEvvLfIRxN8kUrIlp7seBQN8T_N8K8J_66c2eIyos048nTwCjcyP3nULWwNkmNL1gWtdg0CZ-dQKGf2xkll0KkFNAC1ejEoNtKUPpzjF4ICc2RbVPSsaCHKccwYBmVijzEJJIbroI_ZdCuSna-VbLt5ANPHPJgqZND0AQvvxlfdRO8Bs7fg9narkh7d5K2WdOpuWDSySsBOdw6k18PMkw5HX"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
                     </div>
@@ -97,11 +97,11 @@
 
                 <!-- Service 4: Data Analytics -->
                 <div class="grid md:grid-cols-2 gap-12 items-center mt-32">
-                    <div class="rounded-2xl overflow-hidden border border-white/10 bg-white/5 aspect-video relative group">
+                    <div class="rounded-2xl overflow-hidden border border-white/10 bg-white/5 aspect-video relative group reveal reveal-left">
                         <img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Interactive data dashboard with charts and graphs in neon colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfn7pbAFt6DCwmCwS0D8xec7EjEO9NYjFKIzP9EALZBpVtihm9MLunDAPA532UYLT4lxcikhZoKV3U10VUOknBbJ4k14xQjS03F_LoHleZSX_H675ZH3uTFjjJfPcCYHNU0ysjbXMWzL4YBzsl1mpXazLv76QtsfwyfAnwzLgxAOkQA52Jxf0F9CRGUxyetqasUFjQAX4jyeAgc6ANwO1xPtJPbqObBDrDYKZexXxGgy8rTu8v4_W26yPs2QqAYW9iqAI5U6j9VQnh"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
                     </div>
-                    <div>
+                    <div class="reveal reveal-right">
                         <div class="inline-flex items-center gap-2 text-primary bg-primary/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
                             <span class="material-symbols-outlined text-sm">query_stats</span>
                             <%= t.service.new_data_badge %>
@@ -115,7 +115,7 @@
                             <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_data_li2 %></li>
                             <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> <%= t.service.new_data_li3 %></li>
                         </ul>
-                        <button class="border border-primary text-primary px-6 py-3 rounded-lg font-bold hover:bg-primary/10 transition-all"><%= t.service.new_data_btn %></button>
+                        <button class="border border-primary text-primary px-6 py-3 rounded-lg font-bold hover:bg-primary/10 transition-all hover-lift"><%= t.service.new_data_btn %></button>
                     </div>
                 </div>
             </div>
@@ -130,32 +130,32 @@
                     <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-white/10 -translate-y-1/2"></div>
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
                         <!-- Step 1 -->
-                        <div class="flex flex-col items-center text-center group">
-                            <div class="size-16 rounded-full bg-background-dark border-4 border-white/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+                        <div class="flex flex-col items-center text-center group reveal reveal-up delay-100">
+                            <div class="size-16 rounded-full bg-background-dark border-4 border-white/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors hover-glow">
                                 <span class="text-primary font-bold text-xl">01</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-white"><%= t.service.process_1_title %></h3>
                             <p class="text-slate-400 text-sm"><%= t.service.process_1_desc %></p>
                         </div>
                         <!-- Step 2 -->
-                        <div class="flex flex-col items-center text-center group">
-                            <div class="size-16 rounded-full bg-background-dark border-4 border-white/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+                        <div class="flex flex-col items-center text-center group reveal reveal-up delay-200">
+                            <div class="size-16 rounded-full bg-background-dark border-4 border-white/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors hover-glow">
                                 <span class="text-primary font-bold text-xl">02</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-white"><%= t.service.process_2_title %></h3>
                             <p class="text-slate-400 text-sm"><%= t.service.process_2_desc %></p>
                         </div>
                         <!-- Step 3 -->
-                        <div class="flex flex-col items-center text-center group">
-                            <div class="size-16 rounded-full bg-background-dark border-4 border-white/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+                        <div class="flex flex-col items-center text-center group reveal reveal-up delay-300">
+                            <div class="size-16 rounded-full bg-background-dark border-4 border-white/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors hover-glow">
                                 <span class="text-primary font-bold text-xl">03</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-white"><%= t.service.process_3_title %></h3>
                             <p class="text-slate-400 text-sm"><%= t.service.process_3_desc %></p>
                         </div>
                         <!-- Step 4 -->
-                        <div class="flex flex-col items-center text-center group">
-                            <div class="size-16 rounded-full bg-background-dark border-4 border-white/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+                        <div class="flex flex-col items-center text-center group reveal reveal-up delay-400">
+                            <div class="size-16 rounded-full bg-background-dark border-4 border-white/10 flex items-center justify-center mb-6 group-hover:border-primary transition-colors hover-glow">
                                 <span class="text-primary font-bold text-xl">04</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-white"><%= t.service.process_4_title %></h3>

@@ -11,17 +11,17 @@
         <section class="relative py-20 overflow-hidden border-b border-white/10">
             <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #bc00ff 1px, transparent 0); background-size: 40px 40px;"></div>
             <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6 animate-fade-in-up">
                     <span class="relative flex h-2 w-2">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                     </span>
                     Nos Solutions
                 </div>
-                <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight text-white">
+                <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight text-white animate-fade-in-up delay-100">
                     <%= t.solution.title_1 %> <span class="text-primary"><%= t.solution.title_highlight %></span>
                 </h1>
-                <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-200">
                     <%= t.solution.description %>
                 </p>
             </div>
@@ -33,8 +33,8 @@
 
                 <% if (solutions && solutions.length > 0) { %>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <% solutions.forEach(sol => { %>
-                            <div class="group relative glass-card rounded-2xl overflow-hidden hover:border-primary/40 transition-all hover:shadow-[0_0_40px_rgba(0,238,255,0.08)]">
+                        <% solutions.forEach((sol, index) => { %>
+                            <div class="group relative glass-card rounded-2xl overflow-hidden hover:border-primary/40 transition-all hover:shadow-[0_0_40px_rgba(0,238,255,0.08)] hover-lift reveal reveal-up delay-<%= (index % 3 + 1) * 100 %>">
 
                                 <!-- Optional Image Banner -->
                                 <% if (sol.imageUrl) { %>
@@ -47,7 +47,7 @@
                                 <div class="p-8 lg:p-10">
                                     <!-- Icon + Category -->
                                     <div class="flex items-start justify-between mb-4">
-                                        <span class="material-symbols-outlined text-primary text-4xl"><%= sol.icon || 'bolt' %></span>
+                                        <span class="material-symbols-outlined text-primary text-4xl animate-float"><%= sol.icon || 'bolt' %></span>
                                         <% if (sol.category) { %>
                                         <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
                                             <%= sol.category %>
@@ -81,9 +81,9 @@
                 <% } else { %>
                     <!-- Fallback: Static hardcoded cards if no admin solutions yet -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <div class="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-all">
+                        <div class="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-all hover-lift reveal reveal-left">
                             <div class="p-8 lg:p-10">
-                                <span class="material-symbols-outlined text-primary text-4xl mb-4">architecture</span>
+                                <span class="material-symbols-outlined text-primary text-4xl mb-4 animate-float">architecture</span>
                                 <h3 class="text-2xl font-bold mb-3 text-white">Enterprise AI Strategy</h3>
                                 <p class="text-slate-300 mb-6 leading-relaxed">Comprehensive roadmap for AI adoption, from infra assessment to custom model development.</p>
                                 <ul class="space-y-4 mb-8">
@@ -92,9 +92,9 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-all">
+                        <div class="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-all hover-lift reveal reveal-right">
                             <div class="p-8 lg:p-10">
-                                <span class="material-symbols-outlined text-primary text-4xl mb-4">person_search</span>
+                                <span class="material-symbols-outlined text-primary text-4xl mb-4 animate-float" style="animation-delay: 0.5s;">person_search</span>
                                 <h3 class="text-2xl font-bold mb-3 text-white">AI Assistant for Sales Teams</h3>
                                 <p class="text-slate-300 mb-6 leading-relaxed">Intelligent lead scoring and automated CRM management to help your team close high-value deals.</p>
                                 <ul class="space-y-2 mb-8 text-sm text-slate-200">

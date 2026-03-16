@@ -7,37 +7,113 @@
     <%- include('partials/nav', { activePage: 'event' }) %>
 
 <main class="flex-grow pt-24">
-    <!-- Hero Section -->
-    <section class="relative py-24 px-6 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
-            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]"></div>
-            <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 40px 40px;"></div>
-        </div>
-        <div class="relative z-10 max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                </span>
-                <%= t.event.badge %>
+<% 
+    const priorityEvent = events && events.length > 0 ? events.find(e => e.isPriority) : null;
+    const otherEvents = events ? events.filter(e => e !== priorityEvent) : [];
+%>
+
+<main class="flex-grow pt-24">
+    
+    <% if (priorityEvent) { %>
+        <!-- Priority Event Hero -->
+        <section class="relative min-h-[85vh] flex items-center overflow-hidden border-b border-white/5">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <% if (priorityEvent.imageUrl) { %>
+                    <img src="<%= priorityEvent.imageUrl %>" alt="<%= priorityEvent.title %>" class="w-full h-full object-cover">
+                <% } else { %>
+                    <div class="w-full h-full bg-gradient-to-br from-amber-500/20 via-background-dark to-primary/10"></div>
+                <% } %>
+                <div class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/80 to-transparent"></div>
+                <div class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background-dark to-transparent"></div>
             </div>
-            <h1 class="text-5xl md:text-7xl font-display font-extrabold text-white mb-8 tracking-tight leading-tight">
-                <%= t.event.hero_title %> <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"><%= t.event.hero_title_highlight %></span> <%= t.event.hero_title_end %>
-            </h1>
-            <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                <%= t.event.hero_desc %>
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-primary text-background-dark px-8 py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_15px_rgba(0,238,255,0.4)] flex items-center justify-center gap-2 transition-all">
-                    <%= t.event.explore_btn %> <span class="material-symbols-outlined">arrow_downward</span>
-                </button>
-                <button class="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-8 py-4 rounded-xl font-bold text-lg transition-all">
-                    <%= t.event.past_highlights_btn %>
-                </button>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-6 w-full py-20">
+                <div class="max-w-3xl reveal reveal-left">
+                    <div class="inline-flex items-center gap-3 mb-8">
+                        <span class="px-5 py-2 rounded-full bg-amber-500 text-white text-xs font-black uppercase tracking-[0.2em] shadow-2xl shadow-amber-500/40 animate-pulse-glow">
+                            À l'Affiche
+                        </span>
+                        <span class="px-4 py-2 bg-white/5 backdrop-blur-xl rounded-full text-xs font-bold text-amber-200 border border-amber-500/20 uppercase tracking-widest">
+                            <%= priorityEvent.category || 'FEATURED' %>
+                        </span>
+                    </div>
+
+                    <h1 class="text-5xl md:text-8xl font-black text-white mb-8 leading-[0.9] tracking-tighter">
+                        <%= priorityEvent.title %>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-slate-300 mb-12 line-clamp-3 max-w-2xl leading-relaxed font-medium">
+                        <%= priorityEvent.description %>
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-10 mb-12">
+                        <div class="flex items-center gap-4 group">
+                            <div class="size-14 rounded-2xl bg-amber-500/10 flex items-center justify-center border border-amber-500/20 group-hover:border-amber-500/50 transition-colors">
+                                <span class="material-symbols-outlined text-amber-500 text-3xl">calendar_today</span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Date de l'événement</p>
+                                <p class="text-white text-xl font-bold"><%= new Date(priorityEvent.date).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
+                            </div>
+                        </div>
+                        <% if (priorityEvent.location) { %>
+                        <div class="flex items-center gap-4 group">
+                            <div class="size-14 rounded-2xl bg-amber-500/10 flex items-center justify-center border border-amber-500/20 group-hover:border-amber-500/50 transition-colors">
+                                <span class="material-symbols-outlined text-amber-500 text-3xl">location_on</span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Lieu</p>
+                                <p class="text-white text-xl font-bold"><%= priorityEvent.location %></p>
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-5">
+                        <button class="bg-amber-500 text-white px-10 py-5 rounded-2xl font-black text-xl hover:shadow-[0_0_40px_rgba(245,158,11,0.5)] hover:-translate-y-1 transition-all flex items-center justify-center gap-3 group">
+                            S'inscrire Maintenant
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </button>
+                        <button class="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-10 py-5 rounded-2xl font-bold text-lg transition-all backdrop-blur-md">
+                            Détails du Programme
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    <% } else { %>
+        <!-- Default Hero Section (Static) -->
+        <section class="relative py-24 px-6 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+                <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]"></div>
+                <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 40px 40px;"></div>
+            </div>
+            <div class="relative z-10 max-w-4xl mx-auto text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    <%= t.event.badge %>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-display font-extrabold text-white mb-8 tracking-tight leading-tight">
+                    <%= t.event.hero_title %> <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"><%= t.event.hero_title_highlight %></span> <%= t.event.hero_title_end %>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    <%= t.event.hero_desc %>
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-primary text-background-dark px-8 py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_15px_rgba(0,238,255,0.4)] flex items-center justify-center gap-2 transition-all">
+                        <%= t.event.explore_btn %> <span class="material-symbols-outlined">arrow_downward</span>
+                    </button>
+                    <button class="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-8 py-4 rounded-xl font-bold text-lg transition-all">
+                        <%= t.event.past_highlights_btn %>
+                    </button>
+                </div>
+            </div>
+        </section>
+    <% } %>
 
     <!-- Upcoming Events Grid -->
     <section class="py-20 px-6 max-w-7xl mx-auto">
@@ -53,10 +129,10 @@
             </div>
         </div>
         
-        <% if (events && events.length > 0) { %>
+        <% if (otherEvents && otherEvents.length > 0) { %>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <% events.forEach(event => { %>
-                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col hover:shadow-[0_0_30px_rgba(0,238,255,0.1)] transition-all duration-300 border border-white/10 hover:border-primary/20">
+                <% otherEvents.forEach(event => { %>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col hover:shadow-[0_0_30px_rgba(0,238,255,0.1)] transition-all duration-300 border border-white/10 hover:border-primary/20 reveal reveal-up">
                         <!-- Event Image -->
                         <div class="relative h-48 overflow-hidden">
                             <% if (event.imageUrl) { %>
@@ -106,7 +182,7 @@
                     </div>
                 <% }) %>
             </div>
-        <% } else { %>
+        <% } else if (!priorityEvent) { %>
             <div class="text-center py-12 bg-white/5 rounded-xl border border-white/10">
                 <span class="material-symbols-outlined text-4xl text-slate-500 mb-4">event_busy</span>
                 <p class="text-slate-400">No events currently scheduled. Check back soon!</p>

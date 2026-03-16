@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "title": "Sandigi",
+    "category": "webinair",
+    "description": "à la decouverte de l'intelligence artificielle",
+    "date": "2026-03-28",
+    "type": "FREE",
+    "location": "Douala",
+    "imageUrl": "/assets/images/events/event-1773677367996.png",
+    "id": 1,
+    "createdAt": "2026-03-16T16:09:28.007Z"
+  },
+  {
+    "title": "conference sandigi",
+    "category": "webinair",
+    "description": "conference de presentation de l'intelligence",
+    "date": "2026-03-09",
+    "type": "FREE",
+    "location": "Douala",
+    "imageUrl": "/assets/images/events/event-1773677472774.png",
+    "id": 2,
+    "createdAt": "2026-03-16T16:11:12.782Z"
+  }
+]
